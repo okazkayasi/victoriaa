@@ -1,7 +1,6 @@
 import { Canvas, useFrame, useLoader, type MeshProps } from "@react-three/fiber"
 import { useRef, useState } from "react"
 import * as THREE from "three"
-import { type Mesh } from "three"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 
 const Circle = (props: MeshProps) => {
@@ -18,7 +17,7 @@ const Circle = (props: MeshProps) => {
 }
 
 const Box = (props: MeshProps) => {
-  const ref = useRef<Mesh>(null)
+  const ref = useRef(null)
   const [hovered, setHover] = useState(false)
   const [rotate, setRotate] = useState(false)
 

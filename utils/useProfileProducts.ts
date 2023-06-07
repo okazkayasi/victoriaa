@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react"
 import { type SolarProfile } from "../components/profile/CurrentProfileContext"
-import {
-  useProducts,
-  type ProdNode,
-} from "../utils/apiOperations/productOps"
+import { useProducts, type ProdNode } from "../utils/apiOperations/productOps"
 
 export const productMap = {
   goForDetox: {
@@ -63,7 +60,7 @@ export const useProfileProducts = (
     const isChildren = age === "Enfant"
     const isOver40 = age === "+ 40 ans" || age === "+ 50 ans"
 
-    const suggestedCart = []
+    const suggestedCart: { name: ProdMapType[keyof ProdMapType]["name"]; id: string }[] = []
     if (parseInt(antiImperfections) > 2) {
       suggestedCart.push(productMap.goForDetox)
       suggestedCart.push(productMap.goForGlow)
