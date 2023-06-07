@@ -9,7 +9,6 @@ import { CommitmentForm } from "../../components/profile/CommitmentForm"
 import { Products } from "../../components/profile/Products"
 import { Result } from "../../components/profile/Result"
 import { type ProfileSteps } from "../../pages/3d-store"
-import { useSolarProfile } from "../../utils/useIsFirstTime"
 import { CloseButton } from "../button/CloseButton"
 import { Text, Title } from "../typography/Typography"
 
@@ -74,8 +73,6 @@ export const Profile = ({
   step: ProfileSteps
   setStep: Dispatch<SetStateAction<ProfileSteps>>
 }) => {
-  const { solarProfile, setSolarProfile } = useSolarProfile()
-
   return (
     <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
       <CloseButton onClick={closeProfile} color="white" />
