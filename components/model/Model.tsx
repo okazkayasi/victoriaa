@@ -1,8 +1,7 @@
 import { OrbitControls, useGLTF } from "@react-three/drei"
-import { ThreeEvent, useFrame, useLoader } from "@react-three/fiber"
+import { ThreeEvent, useFrame } from "@react-three/fiber"
 import { useMemo, useRef } from "react"
 import { Vector3 } from "three"
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import { Circle } from "./Circle"
 import { CENTERS, circlePositions } from "./constants"
 import { move, rotate, usePersonControls } from "./usePersonControls"
@@ -22,8 +21,7 @@ export const TheModel = ({
 
   const { forward, backward, left, right } = usePersonControls()
 
-  const gltf = useLoader(GLTFLoader, "/glb/demain_beauty.glb")
-  const { scene } = useGLTF("/glb/demain_beauty.glb")
+  const { scene } = useGLTF("/glb/demain_beauty_v2.glb")
 
   const circles = useMemo(() => {
     const onDoubleClick = (e: ThreeEvent<MouseEvent>) => {
