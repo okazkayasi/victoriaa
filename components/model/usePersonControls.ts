@@ -18,7 +18,6 @@ export const usePersonControls = () => {
     backward: false,
     left: false,
     right: false,
-    jump: false,
   })
 
   useEffect(() => {
