@@ -43,6 +43,7 @@ export const move = (state: RootState, controlRef: any, forward: boolean) => {
   const moveSpeed = forward ? MOVE_SPEED : -1 * MOVE_SPEED
   const cameraDirection = new THREE.Vector3()
   state.camera.getWorldDirection(cameraDirection)
+  cameraDirection.y = 0
   const newPosition = state.camera.position
     .clone()
     .addScaledVector(cameraDirection, moveSpeed)
