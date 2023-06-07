@@ -1,4 +1,3 @@
-import { useGLTF } from "@react-three/drei"
 import { type ReactNode } from "react"
 import { Scene } from "./Scene"
 
@@ -13,9 +12,4 @@ export const BackgroundContainer = ({ children }: { children: ReactNode }) => {
       </div>
     </div>
   )
-}
-
-const Background = () => {
-  const gltf = useGLTF("/glb/monkey.glb")
-  return <primitive object={gltf.scene} />
 }

@@ -193,7 +193,7 @@ const ProductTutorial = () => {
           void router.push("/3d-store")
         }}
       >
-        <source src="video2.mp4" type="video/mp4" />
+        <source src="/videos/Chafik_vid2__V3.mov" type="video/mp4" />
         <img src="/images/logo.png" alt="fallback img" />
       </video>
     </motion.div>
@@ -217,7 +217,7 @@ const IntroVideo = () => {
         loop={true}
         className="fixed inset-0 -z-10 h-screen w-screen object-cover"
       >
-        <source src="vid.mp4" type="video/mp4" />
+        <source src="/videos/Chafik_vid1_V1.mov" type="video/mp4" />
         <img src="/images/logo.png" alt="fallback img" />
       </video>
     </motion.div>
