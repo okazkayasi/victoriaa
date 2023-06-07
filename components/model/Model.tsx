@@ -51,6 +51,9 @@ export const TheModel = () => {
     } else {
       // make the circles bigger
     }
+
+    // show/hide circles
+    // showHideCircles(state, circles)
   })
 
   return (
