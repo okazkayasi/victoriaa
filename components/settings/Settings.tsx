@@ -18,7 +18,7 @@ const SettingsWrapper = ({
   closeSettings: () => void
 }) => {
   return (
-    <div className="absolute bottom-0 left-0">
+    <div className="absolute bottom-0 left-0 z-20">
       <CloseButton onClick={closeSettings} />
       <div className="h-[290px] w-[300px] bg-white bg-opacity-80 px-7.5 pt-14">
         {children}

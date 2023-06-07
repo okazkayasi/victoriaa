@@ -41,6 +41,7 @@ export const Tutorial = ({
     if (step < TUTORIAL_MAX_STEP) {
       setStep((prev) => prev + 1)
     } else {
+      setStep(0)
       closeTutorial()
     }
   }
@@ -100,11 +101,11 @@ export const Tutorial = ({
 
   return (
     <div>
-      <div className="absolute left-1/2 top-[120px] -translate-x-1/2">
+      <div className="absolute left-1/2 top-[120px] -translate-x-1/2" z-20>
         {step === 1 && step1Visual}
         {step === 2 && step2Visual}
       </div>
-      <div className="absolute bottom-16 left-1/2 w-10/12 max-w-[880px] -translate-x-1/2">
+      <div className="absolute bottom-16 left-1/2 z-20 w-10/12 max-w-[880px] -translate-x-1/2">
         <div className="bg-white bg-opacity-80 px-8">
           <div className="relative pb-10 pt-8">
             <Title size="medium" color="main" bold className="mb-3">

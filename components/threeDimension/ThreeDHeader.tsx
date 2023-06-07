@@ -26,7 +26,7 @@ export const ThreeDHeader = ({
   }
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between relative z-20">
       <div className="flex gap-1.5">
         <IconWrapper
           onClick={toggle("tutorialOn")}

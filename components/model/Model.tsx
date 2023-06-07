@@ -21,7 +21,9 @@ export const TheModel = ({
 
   const { forward, backward, left, right } = usePersonControls()
 
-  const { scene } = useGLTF("/glb/demain_beauty_v2.glb")
+  const gltff = useGLTF("/glb/demain_beauty.glb")
+  console.log(gltff, "gltff")
+  const { scene } = gltff
 
   const circles = useMemo(() => {
     const onDoubleClick = (e: ThreeEvent<MouseEvent>) => {

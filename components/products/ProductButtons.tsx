@@ -17,7 +17,7 @@ export const ProductButtons = ({
   }
 
   return (
-    <div className="absolute left-4 top-24">
+    <div className="absolute left-4 top-24 z-20">
       <div className="flex flex-col gap-4">
         <div>
           <Button size="xsmall" onClick={openProductModal("go_for_detox")}>

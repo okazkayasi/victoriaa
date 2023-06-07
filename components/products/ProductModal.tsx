@@ -57,7 +57,7 @@ export const ProductModal = ({
   const currentIng = ingredients[displayIngredientIndex ?? 0]
 
   return (
-    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
       <CloseButton onClick={closeModal} />
       <div className="min-h-[575px] w-[450px] bg-white bg-opacity-80 px-9 pb-12 pt-14">
         <div className="mb-3 px-9">

@@ -83,7 +83,7 @@ export const Profile = ({
   }, [solarProfile, setStep, setSolarProfile, step])
 
   return (
-    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
       <CloseButton onClick={closeProfile} color="white" />
       <div className="relative h-[575px] w-[450px] bg-main bg-opacity-80 px-14 pt-15">
         {step === "start" && <ProfileStart setStep={setStep} />}
