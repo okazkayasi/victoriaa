@@ -1,12 +1,8 @@
-import { MeshProps, ThreeEvent, useFrame, useLoader } from "@react-three/fiber"
+import { MeshProps, useFrame, useLoader } from "@react-three/fiber"
 import { useRef } from "react"
 import * as THREE from "three"
 
-type CircleProsp = {
-  onDoubleClick: (e: ThreeEvent<MouseEvent>) => void
-} & MeshProps
-
-export const Circle = ({onDoubleClick, ...props}: MeshProps) => {
+export const Circle = ({ onDoubleClick, ...props }: MeshProps) => {
   const texture = useLoader(THREE.TextureLoader, "/models/POI.png")
   const ref = useRef(null)
 
@@ -19,6 +15,12 @@ export const Circle = ({onDoubleClick, ...props}: MeshProps) => {
       {...props}
       ref={ref}
       onDoubleClick={onDoubleClick}
+      onPointerEnter={(e) => {
+        e.object.scale.set(1.1, 1.1, 1.1)
+      }}
+      onPointerOut={(e) => {
+        e.object.scale.set(1, 1, 1)
+      }}
     >
       <circleGeometry args={[0.1]} />
       <meshPhongMaterial map={texture} flatShading />

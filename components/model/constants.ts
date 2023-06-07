@@ -8,3 +8,26 @@ export const TURN_SPEED = 6
 export const CIRCLE_OFFSET = 2.7
 
 export const CENTERS = [CenterX, CenterY, CenterZ] as const
+
+export const circlePositions: {
+  name: `circle${string}`
+  position: [number, number, number]
+}[] = [
+  { name: "circleCenter", position: [CenterX, CenterY, CenterZ] },
+  {
+    name: "circleOne",
+    position: [CenterX + CIRCLE_OFFSET, CenterY, CenterZ + CIRCLE_OFFSET],
+  },
+  {
+    name: "circleTWo",
+    position: [CenterX + CIRCLE_OFFSET, CenterY, CenterZ - CIRCLE_OFFSET],
+  },
+  {
+    name: "circleThree",
+    position: [CenterX - CIRCLE_OFFSET, CenterY, CenterZ + CIRCLE_OFFSET],
+  },
+  {
+    name: "circleFour",
+    position: [CenterX - CIRCLE_OFFSET, CenterY, CenterZ - CIRCLE_OFFSET],
+  },
+]
