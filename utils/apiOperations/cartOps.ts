@@ -17,6 +17,14 @@ export type CartItemData = {
   merchandise: {
     product: {
       title: string
+      images: {
+        edges: {
+          node: {
+            id: string
+            url: string
+          }
+        }[]
+      }
     }
   }
 }

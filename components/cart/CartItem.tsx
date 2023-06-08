@@ -35,7 +35,7 @@ export const CartItem = ({ product }: CartItemProps) => {
         amount: product.cost.subtotalAmount.amount,
         quantityAvailable: 5,
         title: product.merchandise.product.title,
-        imageSrc: "/ProductImage.png",
+        imageSrc: product.merchandise.product.images.edges[0].node.url,
       }}
       deleteItem={deleteProductFromCart}
       incrementItem={incrementItem}
