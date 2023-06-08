@@ -1,6 +1,5 @@
-import Image from "next/image"
+import { EmptyProfile } from "components/shapes/EmptyProfile"
 import { type Dispatch, type SetStateAction } from "react"
-import EmptyProfile from "../../assets/empty-profile.png"
 import { Button } from "../../components/button/Button"
 import { LoadingBar } from "../../components/loadingBar/LoadingBar"
 import { AgeForm } from "../../components/profile/AgeForm"
@@ -27,7 +26,7 @@ const ProfileStart = ({
       </Text>
     </div>
     <div className="mb-10 flex flex-col items-center">
-      <Image src={EmptyProfile} alt="empty-profile" />
+      <EmptyProfile />
     </div>
     <div>
       <Button className="w-full" onClick={() => setStep("age-form")}>
