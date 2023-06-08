@@ -1,4 +1,5 @@
 import { type Dispatch, type SetStateAction } from "react"
+import { useTranslation } from "react-i18next"
 import { type ProfileSteps } from "../../pages/3d-store"
 import { addToCart } from "../../utils/apiOperations/cartOps"
 import { toastSuccess } from "../../utils/toast"
@@ -15,6 +16,7 @@ export const Products = ({
   closeProfile: () => void
   setStep: Dispatch<SetStateAction<ProfileSteps>>
 }) => {
+  const { t } = useTranslation()
   const { solarProfile } = useSolarProfile()
 
   const [suggestedProds, setSuggestedProds] = useProfileProducts(solarProfile)
@@ -88,7 +90,7 @@ export const Products = ({
     <div>
       <div className="mb-11">
         <Title as="h2" size="xsmall" bold color="white">
-          YOUR 100% PERSONALIZED SELECTION!
+          {t("common.form.products.title")}
         </Title>
       </div>
       <div className="mb-6 flex h-[350px] flex-col items-center">
@@ -120,7 +122,7 @@ export const Products = ({
           size="small"
           onClick={addProductsToCart}
         >
-          ADD TO YOUR CART
+          {t("common.form.products.add_to_cart_button")}
         </Button>
       </div>
     </div>

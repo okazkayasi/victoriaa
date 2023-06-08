@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import { type UseFormRegister } from "react-hook-form"
+import { useTranslation } from "react-i18next"
 import { twMerge } from "tailwind-merge"
 import { Text } from "../typography/Typography"
 
@@ -39,6 +40,7 @@ type RadioLargeProps = {
 }
 
 function RadioLarge(props: RadioLargeProps) {
+  const { t } = useTranslation()
   const { name, label, value, register } = props
   const id = `age-form-${value}`
 
@@ -70,7 +72,7 @@ function RadioLarge(props: RadioLargeProps) {
           </div>
           <div className="flex items-center">
             <Text size="medium" className="text-radio-large">
-              {label}
+              {t("common.form.age_form." + label)}
             </Text>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { EmptyProfile } from "components/shapes/EmptyProfile"
 import { type Dispatch, type SetStateAction } from "react"
+import { useTranslation } from "react-i18next"
 import { Button } from "../../components/button/Button"
 import { LoadingBar } from "../../components/loadingBar/LoadingBar"
 import { AgeForm } from "../../components/profile/AgeForm"
@@ -45,7 +46,8 @@ export const NextStepButton = ({
   onClick?: () => void
   fill: number
 }) => {
-  const displayText = text || "Next Step"
+  const { t } = useTranslation()
+  const displayText = text || t("common.form.next_step_button")
   return (
     <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center">
       <Button

@@ -57,8 +57,8 @@ export const useProfileProducts = (
     const antiAging = currentProfile.beautyConcern.antiAge ?? "0"
 
     const age = currentProfile.age
-    const isChildren = age === "Enfant"
-    const isOver40 = age === "+ 40 ans" || age === "+ 50 ans"
+    const isChildren = age === "child"
+    const isOver40 = age === "forty" || age === "fifty"
 
     const suggestedCart: {
       name: ProdMapType[keyof ProdMapType]["name"]

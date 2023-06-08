@@ -1,13 +1,7 @@
 import { createContext, type Dispatch, type SetStateAction } from "react"
 import { noop } from "../../utils/noop"
 
-
-export type AgeOptions =
-  | "Enfant"
-  | "Adolescent"
-  | "+ 20 ans"
-  | "+ 40 ans"
-  | "+ 50 ans"
+export type AgeOptions = "child" | "teenager" | "twenty" | "forty" | "fifty"
 
 export type ConcernOptions = "0" | "1" | "2" | "3" | "4"
 
