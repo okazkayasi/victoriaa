@@ -1,166 +1,4 @@
-import { SolarProfile } from "components/profile/CurrentProfileContext"
-
-type Deg =
-  | "0deg"
-  | "45deg"
-  | "90deg"
-  | "135deg"
-  | "180deg"
-  | "225deg"
-  | "270deg"
-  | "315deg"
-
-type ValueType = "0" | "1" | "2" | "3" | "4"
-
-const FillPath = (props: { deg: Deg; value: ValueType }) => {
-  const value = parseInt(props.value)
-  const translateX: Record<Deg, number> = {
-    "0deg": 0,
-    "45deg": 0,
-    "90deg": 1,
-    "135deg": 2,
-    "180deg": 2,
-    "225deg": 3,
-    "270deg": 2,
-    "315deg": 1,
-  }
-
-  const fillTranslateX: Record<Deg, number> = {
-    "0deg": 0,
-    "45deg": 0,
-    "90deg": 0,
-    "135deg": 0,
-    "180deg": 1,
-    "225deg": 0,
-    "270deg": 0,
-    "315deg": -0,
-  }
-
-  return (
-    <>
-      <g
-        style={{
-          transform: `rotate(${props.deg}) translateX(${
-            translateX[props.deg]
-          }px)`,
-          transformOrigin: "50% 50%",
-        }}
-      >
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M143.049 24.571C143.049 19.821 146.899 15.9704 151.649 15.9704C156.399 15.9704 160.25 19.821 160.25 24.571V95.639H143.049V24.571ZM151.649 16.8757C147.399 16.8757 143.954 20.321 143.954 24.571V94.7337H159.345V24.571C159.345 20.321 155.899 16.8757 151.649 16.8757Z"
-          fill="#FFAD01"
-        />
-
-        {value > 0 && (
-          <g
-            style={{
-              transform: "translate(142.7px, 75px)",
-            }}
-          >
-            <path
-              d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17.5 3.84628 17.5 8.59091V21H0V8.59091Z"
-              fill="#FFAD01"
-              style={{
-                transform: `translateX(${fillTranslateX[props.deg]}px)`,
-              }}
-            />
-          </g>
-        )}
-        {value > 1 && (
-          <g
-            style={{
-              transform: "translate(143.2px, 60px)",
-            }}
-          >
-            <path
-              d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
-              fill="#FFAD01"
-              style={{
-                transform: `translateX(${fillTranslateX[props.deg]}px)`,
-              }}
-            />
-          </g>
-        )}
-        {value > 2 && (
-          <>
-            <g
-              style={{
-                transform: "translate(143.2px, 45px)",
-              }}
-            >
-              <path
-                d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
-                fill="#FFAD01"
-                style={{
-                  transform: `translateX(${fillTranslateX[props.deg]}px)`,
-                }}
-              />
-            </g>
-            <g
-              style={{
-                transform: "translate(143.2px, 30px)",
-              }}
-            >
-              <path
-                d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
-                fill="#FFAD01"
-                style={{
-                  transform: `translateX(${fillTranslateX[props.deg]}px)`,
-                }}
-              />
-            </g>
-          </>
-        )}
-        {value > 3 && (
-          <g
-            style={{
-              transform: "translate(143.2px, 16px)",
-            }}
-          >
-            <path
-              d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
-              fill="#FFAD01"
-              style={{
-                transform: `translateX(${fillTranslateX[props.deg]}px)`,
-              }}
-            />
-          </g>
-        )}
-      </g>
-    </>
-  )
-}
-
-export const ProfileGraph = ({
-  solarProfile,
-}: {
-  solarProfile: SolarProfile
-}) => {
-  const antiImperfection = solarProfile.beautyConcern.antiImperfection
-  const antiAge = solarProfile.beautyConcern.antiAge
-  const eclat = solarProfile.beautyConcern.radiance
-  const hydratation = solarProfile.beautyConcern.hydration
-
-  const planet = solarProfile.commitment.planet
-  const clean = solarProfile.commitment.clean
-  const healthy = solarProfile.commitment.microbiome
-  const naturel = solarProfile.commitment.organic
-
-  const fillPaths = (
-    <>
-      <FillPath deg={"0deg"} value={antiImperfection} />
-      <FillPath deg={"45deg"} value={healthy} />
-      <FillPath deg={"90deg"} value={clean} />
-      <FillPath deg={"135deg"} value={naturel} />
-      <FillPath deg={"180deg"} value={planet} />
-      <FillPath deg={"225deg"} value={hydratation} />
-      <FillPath deg={"270deg"} value={eclat} />
-      <FillPath deg={"315deg"} value={antiAge} />
-    </>
-  )
-
+export function EmptyProfile(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="306"
@@ -485,152 +323,243 @@ export const ProfileGraph = ({
         d="M283.367 232.37V234.027H279.787V224.195H281.187V232.37H283.367Z"
         fill="#FFAD01"
       />
-
-      {/*anti-imperfections 0deg*/}
-
-      {fillPaths}
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M143.049 254.524C143.049 259.274 146.899 263.124 151.649 263.124C156.399 263.124 160.25 259.274 160.25 254.524V183.456H143.049V254.524ZM151.649 262.219C147.399 262.219 143.954 258.774 143.954 254.524V184.361H159.345V254.524C159.345 258.774 155.899 262.219 151.649 262.219Z"
+        fill="#FFAD01"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M226.938 52.2247C230.299 48.8687 235.745 48.873 239.101 52.2344C242.457 55.5958 242.453 61.0413 239.091 64.3974L188.799 114.61L176.645 102.438L226.938 52.2247ZM238.46 52.874C235.457 49.8664 230.585 49.8626 227.577 52.8654L177.926 102.439L188.8 113.33L238.451 63.7568C241.459 60.7539 241.463 55.8816 238.46 52.874Z"
+        fill="#FFAD01"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M64.2079 214.697C60.8465 218.053 60.8421 223.499 64.1982 226.86C67.5543 230.221 72.9999 230.226 76.3613 226.87L126.654 176.657L114.5 164.484L64.2079 214.697ZM64.8389 226.22C61.8361 223.213 61.8399 218.34 64.8475 215.338L114.499 165.764L125.373 176.656L75.7216 226.229C72.7141 229.232 67.8417 229.228 64.8389 226.22Z"
+        fill="#FFAD01"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M266.618 130.847C271.368 130.843 275.222 134.69 275.226 139.44C275.23 144.19 271.383 148.044 266.633 148.048L195.565 148.11L195.55 130.909L266.618 130.847ZM274.321 139.441C274.317 135.191 270.869 131.749 266.619 131.753L196.456 131.813L196.47 147.204L266.632 147.143C270.882 147.139 274.325 143.691 274.321 139.441Z"
+        fill="#FFAD01"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M36.6657 131.046C31.9157 131.05 28.0684 134.904 28.0725 139.654C28.0766 144.404 31.9306 148.251 36.6806 148.247L107.749 148.186L107.734 130.985L36.6657 131.046ZM28.9779 139.653C28.9742 135.403 32.4165 131.955 36.6665 131.951L106.829 131.891L106.842 147.281L36.6798 147.342C32.4298 147.345 28.9815 143.903 28.9779 139.653Z"
+        fill="#FFAD01"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M239.13 214.652C242.493 218.006 242.5 223.452 239.146 226.815C235.791 230.178 230.346 230.185 226.983 226.831L176.664 176.644L188.811 164.465L239.13 214.652ZM238.505 226.176C241.506 223.167 241.499 218.294 238.49 215.293L188.813 165.745L177.945 176.642L227.622 226.19C230.631 229.191 235.503 229.185 238.505 226.176Z"
+        fill="#FFAD01"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M76.3163 52.2634C72.9532 48.9091 67.5076 48.9162 64.1532 52.2793C60.7989 55.6424 60.806 61.088 64.1691 64.4424L114.487 114.629L126.635 102.45L76.3163 52.2634ZM64.7942 52.9186C67.7955 49.9095 72.6679 49.9031 75.677 52.9044L125.354 102.452L114.486 113.349L64.8084 63.8014C61.7993 60.8001 61.793 55.9277 64.7942 52.9186Z"
+        fill="#FFAD01"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M143.049 24.571C143.049 19.821 146.899 15.9704 151.649 15.9704C156.399 15.9704 160.25 19.821 160.25 24.571V95.639H143.049V24.571ZM151.649 16.8757C147.399 16.8757 143.954 20.321 143.954 24.571V94.7337H159.345V24.571C159.345 20.321 155.899 16.8757 151.649 16.8757Z"
+        fill="#FFAD01"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M142.866 92.9481V97.7103C142.866 99.7268 141.842 104.132 137.747 105.621C133.652 107.11 129.836 105.001 128.44 103.76L125.017 100.336C120.082 103.698 115.814 107.966 112.452 112.9L115.411 115.859C116.807 117.255 119.133 121.163 117.272 125.631C115.411 130.098 111.223 130.905 109.361 130.749H105.065C104.525 133.614 104.243 136.569 104.243 139.591C104.243 142.612 104.525 145.568 105.065 148.432H110.757C112.464 149.053 116.155 151.038 117.272 154.016C118.389 156.994 116.807 160.841 115.876 162.392L112.348 166.128C115.692 171.078 119.945 175.363 124.868 178.744L129.371 174.491C130.767 173.716 134.397 172.444 137.747 173.561C141.097 174.677 142.555 178.679 142.866 180.541V186.233C145.73 186.773 148.686 187.055 151.707 187.055C154.729 187.055 157.684 186.773 160.549 186.233V179.61C161.014 178.214 162.782 175.05 166.133 173.561C169.483 172.071 173.423 174.181 174.974 175.422L178.397 178.845C183.332 175.484 187.6 171.216 190.962 166.281L188.469 163.788C186.607 162.082 183.443 157.646 185.677 153.551C187.91 149.456 191.571 148.432 193.122 148.432H198.35C198.889 145.568 199.172 142.612 199.172 139.591C199.172 136.569 198.889 133.614 198.35 130.749H193.587C191.416 130.439 186.794 128.888 185.677 125.165C184.56 121.443 186.142 118.03 187.073 116.789L190.962 112.9C187.6 107.966 183.332 103.698 178.398 100.336L176.835 101.899C175.439 103.76 171.437 107.203 166.598 106.087C161.758 104.97 160.549 100.037 160.549 97.7105V92.9481C157.684 92.4085 154.729 92.1262 151.707 92.1262C148.686 92.1262 145.73 92.4085 142.866 92.9481Z"
         fill="#FFAD01"
       />
-
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M190.942 112.968C187.546 107.527 181.175 102.32 178.413 100.397L178.512 100.255C181.281 102.183 187.674 107.406 191.089 112.876L190.942 112.968Z"
+        fill="#757575"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M112.342 166.127C115.738 171.567 122.109 176.774 124.871 178.697L124.771 178.84C122.003 176.912 115.609 171.689 112.195 166.219L112.342 166.127Z"
+        fill="#757575"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M198.233 148.501C199.674 142.251 198.844 134.065 198.248 130.753L198.419 130.722C199.016 134.043 199.851 142.256 198.403 148.54L198.233 148.501Z"
+        fill="#757575"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M105.051 130.594C103.61 136.843 104.44 145.029 105.036 148.341L104.865 148.372C104.268 145.052 103.433 136.838 104.881 130.555L105.051 130.594Z"
+        fill="#757575"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M178.349 178.76C183.779 175.346 188.965 168.959 190.879 166.191L191.022 166.289C189.103 169.064 183.901 175.475 178.442 178.907L178.349 178.76Z"
+        fill="#757575"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M124.935 100.334C119.505 103.748 114.319 110.136 112.405 112.904L112.262 112.805C114.181 110.03 119.383 103.62 124.842 100.187L124.935 100.334Z"
+        fill="#757575"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M142.831 186.166C149.085 187.587 157.268 186.732 160.578 186.126L160.61 186.297C157.291 186.904 149.08 187.764 142.792 186.335L142.831 186.166Z"
+        fill="#757575"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M160.454 92.9286C154.199 91.5075 146.016 92.3625 142.706 92.9685L142.674 92.7976C145.993 92.19 154.204 91.3303 160.492 92.7592L160.454 92.9286Z"
+        fill="#757575"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M152.072 114.527C138.014 114.527 126.618 125.923 126.618 139.98C126.618 154.038 138.014 165.434 152.072 165.434C166.129 165.434 177.525 154.038 177.525 139.98C177.525 125.923 166.129 114.527 152.072 114.527ZM123.536 139.98C123.536 124.221 136.312 111.445 152.072 111.445C167.831 111.445 180.607 124.221 180.607 139.98C180.607 155.74 167.831 168.516 152.072 168.516C136.312 168.516 123.536 155.74 123.536 139.98Z"
         fill="#1F29C7"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M152.09 114.581L152.09 111.608L152.96 111.608L152.96 114.581L152.09 114.581Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M152.09 168.389L152.09 165.416L152.96 165.416L152.96 168.389L152.09 168.389Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M159.737 115.716L160.625 112.899L161.177 113.073L160.29 115.89L159.737 115.716Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M143.617 167.114L144.504 164.295L145.057 164.469L144.169 167.288L143.617 167.114Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M166.746 119.192L168.447 116.778L168.92 117.111L167.22 119.525L166.746 119.192Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M135.733 163.219L137.432 160.808L137.905 161.142L136.207 163.553L135.733 163.219Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M172.491 124.777L174.849 123.017L175.196 123.481L172.837 125.241L172.491 124.777Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M129.331 156.979L131.691 155.217L132.038 155.682L129.677 157.443L129.331 156.979Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M176.189 131.802L178.986 130.85L179.173 131.398L176.375 132.35L176.189 131.802Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M125.203 149.144L127.982 148.198L128.169 148.747L125.39 149.692L125.203 149.144Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M177.517 139.654L180.481 139.614L180.489 140.193L177.525 140.233L177.517 139.654Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M123.7 140.384L126.642 140.344L126.649 140.923L123.708 140.963L123.7 140.384Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M176.409 147.53L179.22 148.4L179.048 148.954L176.238 148.083L176.409 147.53Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M124.939 131.591L127.776 132.469L127.605 133.023L124.768 132.144L124.939 131.591Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M172.844 154.732L175.248 156.438L174.913 156.91L172.509 155.204L172.844 154.732Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M128.93 123.557L131.331 125.262L130.996 125.734L128.595 124.03L128.93 123.557Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M167.243 160.449L168.997 162.818L168.532 163.162L166.777 160.794L167.243 160.449Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M135.174 117.17L136.91 119.513L136.445 119.858L134.709 117.515L135.174 117.17Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M160.214 164.105L161.159 166.909L160.61 167.094L159.665 164.29L160.214 164.105Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M142.838 112.55L144.058 116.169L143.509 116.354L142.289 112.735L142.838 112.55Z"
         fill="#FFAD01"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M152.09 164.879C165.831 164.879 176.97 153.739 176.97 139.999C176.97 126.258 165.831 115.118 152.09 115.118C138.349 115.118 127.21 126.258 127.21 139.999C127.21 153.739 138.349 164.879 152.09 164.879ZM152.09 165.457C166.151 165.457 177.549 154.059 177.549 139.999C177.549 125.938 166.151 114.54 152.09 114.54C138.029 114.54 126.631 125.938 126.631 139.999C126.631 154.059 138.029 165.457 152.09 165.457Z"
         fill="#1F29C7"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M152.09 168.39C167.77 168.39 180.481 155.679 180.481 139.999C180.481 124.319 167.77 111.608 152.09 111.608C136.41 111.608 123.699 124.319 123.699 139.999C123.699 155.679 136.41 168.39 152.09 168.39ZM152.09 168.969C168.09 168.969 181.06 155.999 181.06 139.999C181.06 123.999 168.09 111.028 152.09 111.028C136.09 111.028 123.12 123.999 123.12 139.999C123.12 155.999 136.09 168.969 152.09 168.969Z"
         fill="#1F29C7"
       />

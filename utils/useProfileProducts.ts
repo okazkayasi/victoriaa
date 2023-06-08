@@ -60,7 +60,10 @@ export const useProfileProducts = (
     const isChildren = age === "Enfant"
     const isOver40 = age === "+ 40 ans" || age === "+ 50 ans"
 
-    const suggestedCart: { name: ProdMapType[keyof ProdMapType]["name"]; id: string }[] = []
+    const suggestedCart: {
+      name: ProdMapType[keyof ProdMapType]["name"]
+      id: string
+    }[] = []
     if (parseInt(antiImperfections) > 2) {
       suggestedCart.push(productMap.goForDetox)
       suggestedCart.push(productMap.goForGlow)
@@ -87,7 +90,12 @@ export const useProfileProducts = (
     }
 
     const suggestedCartUnique = [...new Set(suggestedCart)]
-
+    if (suggestedCartUnique.length === 0) {
+      suggestedCartUnique.push(
+        productMap.goForProtectionSkincare,
+        productMap.goForGlow
+      )
+    }
     const finalSuggestedCart = isChildren
       ? suggestedCartUnique.filter(
           (product) => !notForChildrenProducts.includes(product.name)

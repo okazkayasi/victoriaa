@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber"
 import { MenuType, Products } from "pages/3d-store"
 import { Dispatch, SetStateAction, Suspense, useState } from "react"
 import { Vector3 } from "three"
-import { TheModel } from "../model/Model"
+import { TheModel } from "../model/TheModel"
 import { CENTERS } from "../model/constants"
 import { Loader } from "./Loader"
 
@@ -18,7 +18,6 @@ export const Scene = ({
   const [target, setTarget] = useState(new Vector3(10, 10, 10))
 
   const stopLerp = () => {
-    console.log("stop lerp")
     setLerping(false)
   }
 

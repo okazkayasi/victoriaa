@@ -6,6 +6,9 @@ import { Vector3 } from "three"
 import { Circle } from "./Circle"
 import {
   CENTERS,
+  CenterX,
+  CenterY,
+  CenterZ,
   Clickable,
   HIDE_CIRCLES_DISTANCE,
   circlePositions,
@@ -17,6 +20,11 @@ import {
   scaleProductsUpAndDown,
   useRaycaster,
 } from "./useRaycaster"
+
+const USE_LOCAL = false
+const modelUrl = USE_LOCAL
+  ? "/models/demain_beauty_v3.glb"
+  : "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty_v3.glb"
 
 export const TheModel = ({
   lerping,
@@ -37,12 +45,8 @@ export const TheModel = ({
 
   const { forward, backward, left, right } = usePersonControls()
 
-  // const gltf = useGLTF("/glb/demain_beauty.glb")
-  const gltf = useGLTF(
-    "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty.glb"
-  )
+  const gltf = useGLTF(modelUrl)
   const { scene } = gltf
-  // console.log(scene, 'thisi s the scene')
 
   const clickableObjects = scene.children.filter(
     ({ name }) => clickableNames.indexOf(name as Clickable["name"]) > -1
@@ -128,6 +132,7 @@ export const TheModel = ({
         enableZoom={false}
         ref={controlRef}
       />
+      <pointLight position={[CenterX, CenterY + 2, CenterZ]} intensity={0.5} />
       <primitive object={scene} />
       <ambientLight intensity={2} />
       {circles}
