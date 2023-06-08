@@ -1,0 +1,13 @@
+image: alpine:latest
+
+stages:
+  - deploy
+
+devel:
+  image: gitlab.cleevio.cz:4567/web/containers/kubectl-cleevio-vercel-container:latest
+  stage: deploy
+  script:
+    - cleevio-vercel devel
+  only:
+    refs:
+      - main

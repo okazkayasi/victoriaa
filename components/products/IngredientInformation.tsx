@@ -40,6 +40,7 @@ export const IngredientInformation = ({
               <ul className="list-inside list-disc">
                 {t("common.ingredients." + currentIng + ".ingredientFeatures", {
                   returnObjects: true,
+                  // @ts-ignore
                 }).map((feature: string, index: number) => (
                   <li
                     key={index}
@@ -59,6 +60,7 @@ export const IngredientInformation = ({
                 <ul className="list-inside list-disc">
                   {t("common.ingredients." + currentIng + ".otherInfo", {
                     returnObjects: true,
+                    // @ts-ignore
                   }).map((feature: string, index: number) => (
                     <li
                       key={index}
