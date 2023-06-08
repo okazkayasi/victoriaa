@@ -33,33 +33,33 @@ export const circlePositions: {
   },
 ]
 
-const clickableNames = [
+export const clickableNames = [
   "go_for_detox_LOD1",
-  "go_for_protection_LOD1.002",
-  "go_for_protection_LOD1.003",
-  "go_for_detox_LOD1.002",
-  "go_for_protection_LOD1.004",
-  "go_for_protection_LOD1.001",
-  "new_glow.001",
-  "happy age LOD1.002",
+  "go_for_protection_LOD1002",
+  "go_for_protection_LOD1003",
+  "go_for_detox_LOD1002",
+  "go_for_protection_LOD1004",
+  "go_for_protection_LOD1001",
+  "new_glow001",
+  "happy_age_LOD1002",
   "new_repair",
-  "happy age LOD1.001",
+  "happy_age_LOD1001",
   "new_detox",
-  "new_glow.002",
-  "happy age LOD1.003",
-  "new_protection.001",
-  "new_repair.002",
-  "sculpt and glow LOD1",
-  "new_detox.002",
-  "new_glow.003",
+  "new_glow002",
+  "happy_age_LOD1003",
+  "new_protection001",
+  "new_repair002",
+  "sculpt_and_glow_LOD1",
+  "new_detox002",
+  "new_glow003",
   "key",
   "SM_guasha",
-  "lingette.002",
+  "lingette002",
   "étuilingette",
-  "lingette.001",
+  "lingette001",
 ] as const
 
-type Clickable = {
+export type Clickable = {
   name: (typeof clickableNames)[number]
   id: string
 }
@@ -70,31 +70,31 @@ export const clickables: Clickable[] = [
     id: "",
   },
   {
-    name: "go_for_protection_LOD1.002",
+    name: "go_for_protection_LOD1002",
     id: "",
   },
   {
-    name: "go_for_protection_LOD1.003",
+    name: "go_for_protection_LOD1003",
     id: "",
   },
   {
-    name: "go_for_detox_LOD1.002",
+    name: "go_for_detox_LOD1002",
     id: "",
   },
   {
-    name: "go_for_protection_LOD1.004",
+    name: "go_for_protection_LOD1004",
     id: "",
   },
   {
-    name: "go_for_protection_LOD1.001",
+    name: "go_for_protection_LOD1001",
     id: "",
   },
   {
-    name: "new_glow.001",
+    name: "new_glow001",
     id: "",
   },
   {
-    name: "happy age LOD1.002",
+    name: "happy_age_LOD1002",
     id: "",
   },
   {
@@ -102,7 +102,7 @@ export const clickables: Clickable[] = [
     id: "",
   },
   {
-    name: "happy age LOD1.001",
+    name: "happy_age_LOD1001",
     id: "",
   },
   {
@@ -110,31 +110,31 @@ export const clickables: Clickable[] = [
     id: "",
   },
   {
-    name: "new_glow.002",
+    name: "new_glow002",
     id: "",
   },
   {
-    name: "happy age LOD1.003",
+    name: "happy_age_LOD1003",
     id: "",
   },
   {
-    name: "new_protection.001",
+    name: "new_protection001",
     id: "",
   },
   {
-    name: "new_repair.002",
+    name: "new_repair002",
     id: "",
   },
   {
-    name: "sculpt and glow LOD1",
+    name: "sculpt_and_glow_LOD1",
     id: "",
   },
   {
-    name: "new_detox.002",
+    name: "new_detox002",
     id: "",
   },
   {
-    name: "new_glow.003",
+    name: "new_glow003",
     id: "",
   },
   {
@@ -146,7 +146,7 @@ export const clickables: Clickable[] = [
     id: "",
   },
   {
-    name: "lingette.002",
+    name: "lingette002",
     id: "",
   },
   {
@@ -154,7 +154,7 @@ export const clickables: Clickable[] = [
     id: "",
   },
   {
-    name: "lingette.001",
+    name: "lingette001",
     id: "",
   },
 ]

@@ -3,8 +3,15 @@ import { ThreeEvent, useFrame } from "@react-three/fiber"
 import { useMemo, useRef } from "react"
 import { Vector3 } from "three"
 import { Circle } from "./Circle"
-import { CENTERS, circlePositions } from "./constants"
+import {
+  CENTERS,
+  Clickable,
+  HIDE_CIRCLES_DISTANCE,
+  circlePositions,
+  clickableNames,
+} from "./constants"
 import { move, rotate, usePersonControls } from "./usePersonControls"
+import { scaleUpAndDown, useRaycaster } from "./useRaycaster"
 
 export const TheModel = ({
   lerping,
@@ -27,11 +34,20 @@ export const TheModel = ({
   )
   const { scene } = gltf
 
+  const clickableObjects = scene.children.filter(
+    ({ name }) => clickableNames.indexOf(name as Clickable["name"]) > -1
+  )
+
   const circles = useMemo(() => {
     const onDoubleClick = (e: ThreeEvent<MouseEvent>) => {
       const { object } = e
       const { position } = object
       const { x, y, z } = position
+      // check if too close to camera
+      if (e.camera.position.distanceTo(position) < HIDE_CIRCLES_DISTANCE) {
+        return
+      }
+
       const vector = new Vector3(x, y, z)
       setTarget(vector)
       setLerping(true)
@@ -52,8 +68,11 @@ export const TheModel = ({
     return circles
   }, [])
 
+  const intersects = useRaycaster()
   useFrame((state, delta) => {
     // check if movement
+
+    scaleUpAndDown(intersects, clickableObjects)
 
     if (backward || forward || left || right) {
       setLerping(false)
