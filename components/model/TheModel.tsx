@@ -80,6 +80,7 @@ export const TheModel = ({
           position={c.position}
           key={c.name}
           name={c.name}
+          size={c.size}
           onDoubleClick={onDoubleClick}
         />
       )

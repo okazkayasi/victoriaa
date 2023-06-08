@@ -3,35 +3,61 @@ import { Products } from "pages/3d-store"
 export const CenterY = 70.8
 export const CenterX = 0.05
 export const CenterZ = -0.104
-export const STAY_ON_PLATFORM = true
+export const STAY_ON_PLATFORM = false
 export const MOVE_SPEED = 0.02
 export const TURN_SPEED = 6
 
 export const HIDE_CIRCLES_DISTANCE = 1.5
 export const CIRCLE_OFFSET = 2.5
+export const FAR_CIRCLE_OFFSET = 10
 
 export const CENTERS = [CenterX, CenterY, CenterZ] as const
 
 export const circlePositions: {
   name: `circle${string}`
   position: [number, number, number]
+  size: number
 }[] = [
-  { name: "circleCenter", position: [CenterX, CenterY, CenterZ] },
+  { name: "circleCenter", position: [CenterX, CenterY, CenterZ], size: 0.1 },
   {
     name: "circleOne",
     position: [CenterX + CIRCLE_OFFSET, CenterY, CenterZ + CIRCLE_OFFSET],
+    size: 0.1,
   },
   {
     name: "circleTWo",
     position: [CenterX + CIRCLE_OFFSET, CenterY, CenterZ - CIRCLE_OFFSET],
+    size: 0.1,
   },
   {
     name: "circleThree",
     position: [CenterX - CIRCLE_OFFSET, CenterY, CenterZ + CIRCLE_OFFSET],
+    size: 0.1,
   },
   {
     name: "circleFour",
     position: [CenterX - CIRCLE_OFFSET, CenterY, CenterZ - CIRCLE_OFFSET],
+    size: 0.1,
+  },
+  {
+    name: "circleFarOne",
+    position: [CenterX + FAR_CIRCLE_OFFSET, CenterY, CenterZ],
+    size: 0.2,
+  },
+  {
+    name: "circleFarTwo",
+    position: [CenterX - FAR_CIRCLE_OFFSET, CenterY, CenterZ],
+    size: 0.2,
+  },
+  {
+    name: "circleFarThree",
+    position: [CenterX, CenterY, CenterZ + FAR_CIRCLE_OFFSET],
+    size: 0.2,
+  },
+  {
+    name: "circleFarFour",
+    position: [CenterX, CenterY, CenterZ - FAR_CIRCLE_OFFSET],
+    size: 0.2,
   },
 ]
 
