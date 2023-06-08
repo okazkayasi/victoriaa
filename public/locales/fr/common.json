@@ -399,6 +399,24 @@
         "subheadings": "COMPLÉMENTS ALIMENTAIRES",
         "productFeature": "Renforce le système immunitaire et aide le corps à mieux se protéger des agressions extérieures accélératrices du vieillissement cutané",
         "price": "35,00 €"
+      },
+      "zero_waste": {
+        "name": "CLÉ ZÉRO DÉCHET",
+        "subheadings": "",
+        "productFeature": "",
+        "price": "2,90 €"
+      },
+      "cleansing_wipe": {
+        "name": "LINGETTES DÉMAQUILLANTES",
+        "subheadings": "",
+        "productFeature": "",
+        "price": "4,90 €"
+      },
+      "gua_sha": {
+        "name": "GUA SHA",
+        "productFeature": "",
+        "subheadings": "À venir",
+        "price": ""
       }
     }
   }

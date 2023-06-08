@@ -1,3 +1,5 @@
+import { Products } from "pages/3d-store"
+
 export const CenterY = 70.8
 export const CenterX = 0.05
 export const CenterZ = -0.104
@@ -47,7 +49,7 @@ export const clickableNames = [
   "new_detox",
   "new_glow002",
   "happy_age_LOD1003",
-  "new_protection001",
+  "new_protection",
   "new_repair002",
   "sculpt_and_glow_LOD1",
   "new_detox002",
@@ -59,102 +61,128 @@ export const clickableNames = [
   "lingette001",
 ] as const
 
+export type ClickableName = (typeof clickableNames)[number]
+
 export type Clickable = {
-  name: (typeof clickableNames)[number]
+  name: ClickableName
+  localName: Products
   id: string
 }
 
 export const clickables: Clickable[] = [
   {
     name: "go_for_detox_LOD1",
-    id: "",
+    localName: "go_for_detox",
+    id: "7769383174392",
   },
   {
     name: "go_for_protection_LOD1002",
-    id: "",
+    localName: "go_for_protection_skincare",
+    id: "7772113502456",
   },
   {
     name: "go_for_protection_LOD1003",
-    id: "",
+    localName: "go_for_protection_skincare",
+    id: "7772113502456",
   },
   {
     name: "go_for_detox_LOD1002",
-    id: "",
+    localName: "go_for_detox",
+    id: "7769383174392",
   },
   {
     name: "go_for_protection_LOD1004",
-    id: "",
+    localName: "go_for_protection_skincare",
+    id: "7772113502456",
   },
   {
     name: "go_for_protection_LOD1001",
-    id: "",
+    localName: "go_for_protection_skincare",
+    id: "7772113502456",
   },
   {
     name: "new_glow001",
-    id: "",
+    localName: "go_for_glow",
+    id: "7769381470456",
   },
   {
     name: "happy_age_LOD1002",
-    id: "",
+    localName: "happy_age",
+    id: "7762665144568",
   },
   {
     name: "new_repair",
-    id: "",
+    localName: "time_to_repair",
+    id: "7763896991992",
   },
   {
     name: "happy_age_LOD1001",
-    id: "",
+    localName: "sculpt_glow",
+    id: "7872984744184",
   },
   {
     name: "new_detox",
-    id: "",
+    localName: "time_to_detox",
+    id: "7762611962104",
   },
   {
     name: "new_glow002",
-    id: "",
+    localName: "go_for_glow",
+    id: "7769381470456",
   },
   {
     name: "happy_age_LOD1003",
-    id: "",
+    localName: "happy_age",
+    id: "7762665144568",
   },
   {
-    name: "new_protection001",
-    id: "",
+    name: "new_protection",
+    localName: "go_for_protection_dietary",
+    id: "7763912917240",
   },
   {
     name: "new_repair002",
-    id: "",
+    localName: "time_to_repair",
+    id: "7763896991992",
   },
   {
     name: "sculpt_and_glow_LOD1",
-    id: "",
+    localName: "sculpt_glow",
+    id: "7872984744184",
   },
   {
     name: "new_detox002",
-    id: "",
+    localName: "time_to_detox",
+    id: "7762611962104",
   },
   {
     name: "new_glow003",
-    id: "",
+    localName: "go_for_glow",
+    id: "7769381470456",
   },
   {
     name: "key",
-    id: "",
+    localName: "zero_waste",
+    id: "7769386057976",
   },
   {
     name: "SM_guasha",
+    localName: "gua_sha",
     id: "",
   },
   {
     name: "lingette002",
-    id: "",
+    localName: "cleansing_wipe",
+    id: "7769386909944",
   },
   {
     name: "étuilingette",
-    id: "",
+    localName: "cleansing_wipe",
+    id: "7769386909944",
   },
   {
     name: "lingette001",
-    id: "",
+    localName: "cleansing_wipe",
+    id: "7769386909944",
   },
 ]

@@ -13,6 +13,7 @@ import {
   HIDE_CIRCLES_DISTANCE,
   circlePositions,
   clickableNames,
+  clickables,
 } from "./constants"
 import { move, rotate, usePersonControls } from "./usePersonControls"
 import {
@@ -21,7 +22,7 @@ import {
   useRaycaster,
 } from "./useRaycaster"
 
-const USE_LOCAL = false
+const USE_LOCAL = true // TODO: change
 const modelUrl = USE_LOCAL
   ? "/models/demain_beauty_v3.glb"
   : "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty_v3.glb"
@@ -88,8 +89,12 @@ export const TheModel = ({
   const fun = () => {
     const productName = openProductModal(intersects)
     if (productName) {
+      console.log("open product modal", productName)
+
+      const product = clickables.find((o) => o.name === productName)
+
       setMenu((prev) => ({ ...prev, productOn: true }))
-      setSelectedProduct("go_for_detox")
+      setSelectedProduct(product.localName)
     }
   }
   useEffect(() => {

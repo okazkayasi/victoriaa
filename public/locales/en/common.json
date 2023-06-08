@@ -396,6 +396,24 @@
         "subheadings": "Food supplemen",
         "productFeature": "Acts from within to strengthen the immune system and help the body to better protect itself from external aggressions that accelerate skin ageing",
         "price": "35,00 €"
+      },
+      "zero_waste": {
+        "name": "ZERO WASTE KEY",
+        "subheadings": "",
+        "productFeature": "",
+        "price": "2,90 €"
+      },
+      "cleansing_wipe": {
+        "name": "CLEANSING WIPES",
+        "subheadings": "",
+        "productFeature": "",
+        "price": "xxx €"
+      },
+      "gua_sha": {
+        "name": "GUA SHA",
+        "productFeature": "",
+        "subheadings": "Coming Soon",
+        "price": "xxx €"
       }
     }
   }

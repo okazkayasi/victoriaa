@@ -43,17 +43,9 @@ export type Products =
   | "happy_age"
   | "sculpt_glow"
   | "time_to_detox"
-
-export const ProductNames: Products[] = [
-  "go_for_detox",
-  "go_for_glow",
-  "go_for_protection_skincare",
-  "go_for_protection_dietary",
-  "time_to_repair",
-  "happy_age",
-  "sculpt_glow",
-  "time_to_detox",
-]
+  | "zero_waste"
+  | "gua_sha"
+  | "cleansing_wipe"
 
 const initialMenu: MenuType = {
   tutorialOn: false,
