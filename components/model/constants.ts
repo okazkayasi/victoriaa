@@ -75,7 +75,7 @@ export const clickableNames = [
   "new_detox",
   "new_glow002",
   "happy_age_LOD1003",
-  "new_protection",
+  "new_protection001",
   "new_repair002",
   "sculpt_and_glow_LOD1",
   "new_detox002",
@@ -103,13 +103,13 @@ export const clickables: Clickable[] = [
   },
   {
     name: "go_for_protection_LOD1002",
-    localName: "go_for_protection_skincare",
-    id: "gid://shopify/Product/8412770861331",
+    localName: "go_for_protection_dietary",
+    id: "gid://shopify/Product/8412762505491",
   },
   {
     name: "go_for_protection_LOD1003",
-    localName: "go_for_protection_skincare",
-    id: "gid://shopify/Product/8412770861331",
+    localName: "go_for_protection_dietary",
+    id: "gid://shopify/Product/8412762505491",
   },
   {
     name: "go_for_detox_LOD1002",
@@ -118,13 +118,13 @@ export const clickables: Clickable[] = [
   },
   {
     name: "go_for_protection_LOD1004",
-    localName: "go_for_protection_skincare",
-    id: "gid://shopify/Product/8412770861331",
+    localName: "go_for_protection_dietary",
+    id: "gid://shopify/Product/8412762505491",
   },
   {
     name: "go_for_protection_LOD1001",
-    localName: "go_for_protection_skincare",
-    id: "gid://shopify/Product/8412770861331",
+    localName: "go_for_protection_dietary",
+    id: "gid://shopify/Product/8412762505491",
   },
   {
     name: "new_glow001",
@@ -162,9 +162,9 @@ export const clickables: Clickable[] = [
     id: "gid://shopify/Product/8412771418387",
   },
   {
-    name: "new_protection",
-    localName: "go_for_protection_dietary",
-    id: "gid://shopify/Product/8412762505491",
+    name: "new_protection001",
+    localName: "go_for_protection_skincare",
+    id: "gid://shopify/Product/8412770861331",
   },
   {
     name: "new_repair002",
