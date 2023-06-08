@@ -99,97 +99,97 @@ export const clickables: Clickable[] = [
   {
     name: "go_for_detox_LOD1",
     localName: "go_for_detox",
-    id: "7769383174392",
+    id: "gid://shopify/Product/8412770337043",
   },
   {
     name: "go_for_protection_LOD1002",
     localName: "go_for_protection_skincare",
-    id: "7772113502456",
+    id: "gid://shopify/Product/8412770861331",
   },
   {
     name: "go_for_protection_LOD1003",
     localName: "go_for_protection_skincare",
-    id: "7772113502456",
+    id: "gid://shopify/Product/8412770861331",
   },
   {
     name: "go_for_detox_LOD1002",
     localName: "go_for_detox",
-    id: "7769383174392",
+    id: "gid://shopify/Product/8412770337043",
   },
   {
     name: "go_for_protection_LOD1004",
     localName: "go_for_protection_skincare",
-    id: "7772113502456",
+    id: "gid://shopify/Product/8412770861331",
   },
   {
     name: "go_for_protection_LOD1001",
     localName: "go_for_protection_skincare",
-    id: "7772113502456",
+    id: "gid://shopify/Product/8412770861331",
   },
   {
     name: "new_glow001",
     localName: "go_for_glow",
-    id: "7769381470456",
+    id: "gid://shopify/Product/8412770468115",
   },
   {
     name: "happy_age_LOD1002",
     localName: "happy_age",
-    id: "7762665144568",
+    id: "gid://shopify/Product/8412771418387",
   },
   {
     name: "new_repair",
     localName: "time_to_repair",
-    id: "7763896991992",
+    id: "gid://shopify/Product/8412771156243",
   },
   {
     name: "happy_age_LOD1001",
     localName: "sculpt_glow",
-    id: "7872984744184",
+    id: "gid://shopify/Product/8412758343955",
   },
   {
     name: "new_detox",
     localName: "time_to_detox",
-    id: "7762611962104",
+    id: "gid://shopify/Product/8412771778835",
   },
   {
     name: "new_glow002",
     localName: "go_for_glow",
-    id: "7769381470456",
+    id: "gid://shopify/Product/8412770468115",
   },
   {
     name: "happy_age_LOD1003",
     localName: "happy_age",
-    id: "7762665144568",
+    id: "gid://shopify/Product/8412771418387",
   },
   {
     name: "new_protection",
     localName: "go_for_protection_dietary",
-    id: "7763912917240",
+    id: "gid://shopify/Product/8412762505491",
   },
   {
     name: "new_repair002",
     localName: "time_to_repair",
-    id: "7763896991992",
+    id: "gid://shopify/Product/8412771156243",
   },
   {
     name: "sculpt_and_glow_LOD1",
     localName: "sculpt_glow",
-    id: "7872984744184",
+    id: "gid://shopify/Product/8412758343955",
   },
   {
     name: "new_detox002",
     localName: "time_to_detox",
-    id: "7762611962104",
+    id: "gid://shopify/Product/8412771778835",
   },
   {
     name: "new_glow003",
     localName: "go_for_glow",
-    id: "7769381470456",
+    id: "gid://shopify/Product/8412770468115",
   },
   {
     name: "key",
     localName: "zero_waste",
-    id: "7769386057976",
+    id: "gid://shopify/Product/8412768928019",
   },
   {
     name: "SM_guasha",
@@ -199,17 +199,17 @@ export const clickables: Clickable[] = [
   {
     name: "lingette002",
     localName: "cleansing_wipe",
-    id: "7769386909944",
+    id: "gid://shopify/Product/8412768764179",
   },
   {
     name: "étuilingette",
     localName: "cleansing_wipe",
-    id: "7769386909944",
+    id: "gid://shopify/Product/8412768764179",
   },
   {
     name: "lingette001",
     localName: "cleansing_wipe",
-    id: "7769386909944",
+    id: "gid://shopify/Product/8412768764179",
   },
 ]
 

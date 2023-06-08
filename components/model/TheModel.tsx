@@ -119,7 +119,8 @@ export const TheModel = ({
   const intersects = useRaycaster()
   const fun = () => {
     const productName = openProductModal(intersects)
-    if (productName) {
+
+    if (!menu?.productOn && productName) {
       const product = clickables.find((o) => o.name === productName)
 
       setMenu((prev) => ({ ...prev, productOn: true }))
