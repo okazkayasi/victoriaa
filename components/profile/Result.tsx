@@ -12,7 +12,8 @@ export const Result = ({
 }: {
   setStep: Dispatch<SetStateAction<ProfileSteps>>
 }) => {
-  const { setSolarProfile } = useSolarProfile()
+  const { setSolarProfile, solarProfile } = useSolarProfile()
+  console.log(solarProfile)
 
   useEffect(() => {
     return () => {
@@ -37,7 +38,7 @@ export const Result = ({
       </div>
       <div className="relative z-10 mb-4 flex justify-center">
         <div className="z-10 h-[280px] w-[306px]">
-          <ProfileGraph />
+          <ProfileGraph solarProfile={solarProfile} />
         </div>
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2">
           <div className="-translate-x-[1px]">

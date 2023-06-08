@@ -76,7 +76,6 @@ export const scaleProductsUpAndDown = (
     const sclaeUpVec = new Vector3(1.2, 1.2, 1.2)
     scaleObjOrChildren(fistClickableOnRaycast, sclaeUpVec)
   } else {
-    console.log("me here")
     // make cursor default
     if (!intersects.find((i) => i.object.name.startsWith("circle"))) {
       document.body.style.cursor = "default"

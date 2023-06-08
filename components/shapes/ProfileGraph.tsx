@@ -1,3 +1,5 @@
+import { SolarProfile } from "components/profile/CurrentProfileContext"
+
 type Deg =
   | "0deg"
   | "45deg"
@@ -8,7 +10,10 @@ type Deg =
   | "270deg"
   | "315deg"
 
-const FillPath = (props: { deg: Deg }) => {
+type ValueType = "0" | "1" | "2" | "3" | "4"
+
+const FillPath = (props: { deg: Deg; value: ValueType }) => {
+  const value = parseInt(props.value)
   const translateX: Record<Deg, number> = {
     "0deg": 0,
     "45deg": 0,
@@ -48,119 +53,114 @@ const FillPath = (props: { deg: Deg }) => {
           fill="#FFAD01"
         />
 
-        {/*<g*/}
-        {/*  style={{*/}
-        {/*    transform: "translate(142.2px, 80px)",*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  <path*/}
-        {/*    d="M0.501709 0.269287H18.5076V19.2811H0.501709V0.269287Z"*/}
-        {/*    fill="#FFAD01"*/}
-        {/*    style={{*/}
-        {/*      transform: `translateX(${fillTranslateX[props.deg]}px)`,*/}
-        {/*    }}*/}
-        {/*  />*/}
-        {/*</g>*/}
-
-        {/*<g*/}
-        {/*  style={{*/}
-        {/*    transform: "translate(142.2px, 62px)",*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  <path*/}
-        {/*    d="M0.501709 0.269287H18.5076V19.2811H0.501709V0.269287Z"*/}
-        {/*    fill="#FFAD01"*/}
-        {/*    style={{*/}
-        {/*      transform: `translateX(${fillTranslateX[props.deg]}px)`,*/}
-        {/*    }}*/}
-        {/*  />*/}
-        {/*</g>*/}
-
-        {/*<g*/}
-        {/*  style={{*/}
-        {/*    transform: "translate(142.2px, 44px)",*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  <path*/}
-        {/*    d="M0.501709 0.269287H18.5076V19.2811H0.501709V0.269287Z"*/}
-        {/*    fill="#FFAD01"*/}
-        {/*    style={{*/}
-        {/*      transform: `translateX(${fillTranslateX[props.deg]}px)`,*/}
-        {/*    }}*/}
-        {/*  />*/}
-        {/*</g>*/}
-
-        <g
-          style={{
-            transform: "translate(142.7px, 75px)",
-          }}
-        >
-          <path
-            d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17.5 3.84628 17.5 8.59091V21H0V8.59091Z"
-            fill="#FFAD01"
+        {value > 0 && (
+          <g
             style={{
-              transform: `translateX(${fillTranslateX[props.deg]}px)`,
+              transform: "translate(142.7px, 75px)",
             }}
-          />
-        </g>
-        <g
-          style={{
-            transform: "translate(143.2px, 60px)",
-          }}
-        >
-          <path
-            d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
-            fill="#FFAD01"
+          >
+            <path
+              d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17.5 3.84628 17.5 8.59091V21H0V8.59091Z"
+              fill="#FFAD01"
+              style={{
+                transform: `translateX(${fillTranslateX[props.deg]}px)`,
+              }}
+            />
+          </g>
+        )}
+        {value > 1 && (
+          <g
             style={{
-              transform: `translateX(${fillTranslateX[props.deg]}px)`,
+              transform: "translate(143.2px, 60px)",
             }}
-          />
-        </g>
-        <g
-          style={{
-            transform: "translate(143.2px, 45px)",
-          }}
-        >
-          <path
-            d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
-            fill="#FFAD01"
+          >
+            <path
+              d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
+              fill="#FFAD01"
+              style={{
+                transform: `translateX(${fillTranslateX[props.deg]}px)`,
+              }}
+            />
+          </g>
+        )}
+        {value > 2 && (
+          <>
+            <g
+              style={{
+                transform: "translate(143.2px, 45px)",
+              }}
+            >
+              <path
+                d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
+                fill="#FFAD01"
+                style={{
+                  transform: `translateX(${fillTranslateX[props.deg]}px)`,
+                }}
+              />
+            </g>
+            <g
+              style={{
+                transform: "translate(143.2px, 30px)",
+              }}
+            >
+              <path
+                d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
+                fill="#FFAD01"
+                style={{
+                  transform: `translateX(${fillTranslateX[props.deg]}px)`,
+                }}
+              />
+            </g>
+          </>
+        )}
+        {value > 3 && (
+          <g
             style={{
-              transform: `translateX(${fillTranslateX[props.deg]}px)`,
+              transform: "translate(143.2px, 16px)",
             }}
-          />
-        </g>
-        <g
-          style={{
-            transform: "translate(143.2px, 30px)",
-          }}
-        >
-          <path
-            d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
-            fill="#FFAD01"
-            style={{
-              transform: `translateX(${fillTranslateX[props.deg]}px)`,
-            }}
-          />
-        </g>
-        <g
-          style={{
-            transform: "translate(143.2px, 16px)",
-          }}
-        >
-          <path
-            d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
-            fill="#FFAD01"
-            style={{
-              transform: `translateX(${fillTranslateX[props.deg]}px)`,
-            }}
-          />
-        </g>
+          >
+            <path
+              d="M0 8.59091C0 3.84628 3.80558 0 8.5 0C13.1944 0 17 3.84628 17 8.59091V21H0V8.59091Z"
+              fill="#FFAD01"
+              style={{
+                transform: `translateX(${fillTranslateX[props.deg]}px)`,
+              }}
+            />
+          </g>
+        )}
       </g>
     </>
   )
 }
 
-export const ProfileGraph = () => {
+export const ProfileGraph = ({
+  solarProfile,
+}: {
+  solarProfile: SolarProfile
+}) => {
+  const antiImperfection = solarProfile.beautyConcern.antiImperfection
+  const antiAge = solarProfile.beautyConcern.antiAge
+  const eclat = solarProfile.beautyConcern.radiance
+  const hydratation = solarProfile.beautyConcern.hydration
+
+  const planet = solarProfile.commitment.planet
+  const clean = solarProfile.commitment.clean
+  const healthy = solarProfile.commitment.microbiome
+  const naturel = solarProfile.commitment.organic
+
+  const fillPaths = (
+    <>
+      <FillPath deg={"0deg"} value={antiImperfection} />
+      <FillPath deg={"45deg"} value={healthy} />
+      <FillPath deg={"90deg"} value={clean} />
+      <FillPath deg={"135deg"} value={naturel} />
+      <FillPath deg={"180deg"} value={planet} />
+      <FillPath deg={"225deg"} value={hydratation} />
+      <FillPath deg={"270deg"} value={eclat} />
+      <FillPath deg={"315deg"} value={antiAge} />
+    </>
+  )
+
   return (
     <svg
       width="306"
@@ -488,15 +488,7 @@ export const ProfileGraph = () => {
 
       {/*anti-imperfections 0deg*/}
 
-      <FillPath deg={"0deg"} />
-      <FillPath deg={"45deg"} />
-      <FillPath deg={"90deg"} />
-      <FillPath deg={"135deg"} />
-      <FillPath deg={"180deg"} />
-      <FillPath deg={"225deg"} />
-      <FillPath deg={"270deg"} />
-      <FillPath deg={"315deg"} />
-
+      {fillPaths}
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -629,10 +621,6 @@ export const ProfileGraph = () => {
         clipRule="evenodd"
         d="M142.838 112.55L144.058 116.169L143.509 116.354L142.289 112.735L142.838 112.55Z"
         fill="#FFAD01"
-      />
-      <path
-        d="M138.001 137.756H137.12C137.068 137.503 136.977 137.28 136.846 137.088C136.719 136.897 136.562 136.736 136.378 136.606C136.195 136.473 135.993 136.374 135.77 136.307C135.548 136.241 135.316 136.208 135.074 136.208C134.634 136.208 134.235 136.319 133.878 136.542C133.523 136.764 133.24 137.092 133.029 137.525C132.821 137.959 132.716 138.49 132.716 139.12C132.716 139.749 132.821 140.281 133.029 140.714C133.24 141.147 133.523 141.475 133.878 141.698C134.235 141.92 134.634 142.032 135.074 142.032C135.316 142.032 135.548 141.999 135.77 141.932C135.993 141.866 136.195 141.768 136.378 141.637C136.562 141.505 136.719 141.343 136.846 141.151C136.977 140.957 137.068 140.734 137.12 140.483H138.001C137.934 140.855 137.814 141.188 137.638 141.481C137.463 141.775 137.245 142.025 136.985 142.231C136.724 142.434 136.432 142.589 136.108 142.696C135.786 142.802 135.441 142.856 135.074 142.856C134.454 142.856 133.903 142.704 133.42 142.401C132.937 142.098 132.557 141.667 132.28 141.108C132.003 140.55 131.864 139.887 131.864 139.12C131.864 138.353 132.003 137.69 132.28 137.131C132.557 136.572 132.937 136.142 133.42 135.838C133.903 135.535 134.454 135.384 135.074 135.384C135.441 135.384 135.786 135.437 136.108 135.544C136.432 135.65 136.724 135.807 136.985 136.012C137.245 136.216 137.463 136.465 137.638 136.758C137.814 137.049 137.934 137.382 138.001 137.756ZM139.424 142.756V135.483H140.304V138.722H144.182V135.483H145.063V142.756H144.182V139.503H140.304V142.756H139.424ZM147.124 142.756H146.201L148.871 135.483H149.781L152.451 142.756H151.528L149.354 136.634H149.298L147.124 142.756ZM147.465 139.915H151.187V140.696H147.465V139.915ZM153.584 142.756V135.483H157.945V136.265H154.464V138.722H157.618V139.503H154.464V142.756H153.584ZM160.334 135.483V142.756H159.453V135.483H160.334ZM162.099 142.756V135.483H162.98V139.091H163.065L166.332 135.483H167.483L164.429 138.765L167.483 142.756H166.418L163.889 139.375L162.98 140.398V142.756H162.099Z"
-        fill="#2232C4"
       />
       <path
         fillRule="evenodd"
