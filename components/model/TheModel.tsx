@@ -44,7 +44,9 @@ export const TheModel = ({
   setMenu: Dispatch<SetStateAction<MenuType>>
   setSelectedProduct: Dispatch<SetStateAction<Products>>
 }) => {
-  const isAnyMenuOn = Object.values(menu).some((v) => v)
+  const isAnyMenuOn = Object.entries(menu)
+    .filter((a) => a[0] !== "productOn")
+    .some((a) => a[1])
 
   const controlRef = useRef(null)
 
