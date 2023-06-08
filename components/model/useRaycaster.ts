@@ -54,6 +54,17 @@ export const getFirstClickable = (
   return undefined
 }
 
+export const openProductModal = (intersects: Intersection[]) => {
+  console.log("double clicked")
+
+  const clickableObject = getFirstClickable(intersects)
+  console.log(clickableObject)
+
+  if (clickableObject) {
+    return clickableObject.name
+  }
+}
+
 export const scaleProductsUpAndDown = (
   intersects: Intersection[],
   clickableObjects: Object3D<Event>[]

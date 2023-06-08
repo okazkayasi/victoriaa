@@ -1,11 +1,18 @@
 import { Stats } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { useState } from "react"
+import { MenuType, Products } from "pages/3d-store"
+import { Dispatch, SetStateAction, useState } from "react"
 import { Vector3 } from "three"
 import { TheModel } from "../model/Model"
 import { CENTERS } from "../model/constants"
 
-export const Scene = () => {
+export const Scene = ({
+  setMenu,
+  setSelectedProduct,
+}: {
+  setMenu: Dispatch<SetStateAction<MenuType>>
+  setSelectedProduct: Dispatch<SetStateAction<Products>>
+}) => {
   const [lerping, setLerping] = useState(false)
   const [target, setTarget] = useState(new Vector3(10, 10, 10))
 
@@ -33,6 +40,8 @@ export const Scene = () => {
           setLerping={setLerping}
           target={target}
           setTarget={setTarget}
+          setSelectedProduct={setSelectedProduct}
+          setMenu={setMenu}
         />
         <Stats />
       </Canvas>

@@ -1,6 +1,7 @@
 import { OrbitControls, useGLTF } from "@react-three/drei"
 import { ThreeEvent, useFrame } from "@react-three/fiber"
-import { useEffect, useMemo, useRef } from "react"
+import { MenuType, Products } from "pages/3d-store"
+import { Dispatch, SetStateAction, useEffect, useMemo, useRef } from "react"
 import { Vector3 } from "three"
 import { Circle } from "./Circle"
 import {
@@ -11,18 +12,26 @@ import {
   clickableNames,
 } from "./constants"
 import { move, rotate, usePersonControls } from "./usePersonControls"
-import { scaleProductsUpAndDown, useRaycaster } from "./useRaycaster"
+import {
+  openProductModal,
+  scaleProductsUpAndDown,
+  useRaycaster,
+} from "./useRaycaster"
 
 export const TheModel = ({
   lerping,
   setLerping,
   target,
   setTarget,
+  setSelectedProduct,
+  setMenu,
 }: {
   lerping: boolean
   setLerping: (lerping: boolean) => void
   target: Vector3
   setTarget: (target: Vector3) => void
+  setMenu: Dispatch<SetStateAction<MenuType>>
+  setSelectedProduct: Dispatch<SetStateAction<Products>>
 }) => {
   const controlRef = useRef(null)
 
@@ -68,15 +77,19 @@ export const TheModel = ({
   }, [])
 
   const intersects = useRaycaster()
-
-  const dblClickListener = (e: MouseEvent) => {}
-  useEffect(() => {
-    window.addEventListener("dblclick", dblClickListener)
-
-    return () => {
-      window.removeEventListener("dblclick", dblClickListener)
+  const fun = () => {
+    const productName = openProductModal(intersects)
+    if (productName) {
+      setMenu((prev) => ({ ...prev, productOn: true }))
+      setSelectedProduct("go_for_detox")
     }
-  }, [])
+  }
+  useEffect(() => {
+    window.addEventListener("click", fun)
+    return () => {
+      window.removeEventListener("click", fun)
+    }
+  }, [fun])
 
   useFrame((state, delta) => {
     scaleProductsUpAndDown(intersects, clickableObjects)

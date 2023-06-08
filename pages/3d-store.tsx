@@ -11,10 +11,7 @@ import { BackgroundContainer } from "../components/threeDimension/BackgroundCont
 import { ThreeDHeader } from "../components/threeDimension/ThreeDHeader"
 import { Tutorial } from "../components/tutorial/Tutorial"
 import { fetcher } from "../utils/apiOperations/fetcher"
-import {
-  type ImageNode,
-  type ProductsResponse,
-} from "../utils/apiOperations/productOps"
+import { type ProductsResponse } from "../utils/apiOperations/productOps"
 import { getIconsToDisplay } from "../utils/getIconsToDisplay"
 import { getIntlProps } from "../utils/getIntlProps"
 import { ingredientsList, productsList } from "../utils/ingredientsList"
@@ -46,7 +43,18 @@ export type Products =
   | "sculpt_glow"
   | "time_to_detox"
 
-const ThreeDStore = (props: { imageData: ImageNode[] }) => {
+export const ProductNames: Products[] = [
+  "go_for_detox",
+  "go_for_glow",
+  "go_for_protection_skincare",
+  "go_for_protection_dietary",
+  "time_to_repair",
+  "happy_age",
+  "sculpt_glow",
+  "time_to_detox",
+]
+
+const ThreeDStore = () => {
   const [menu, setMenu] = useState<MenuType>({
     tutorialOn: false,
     settingsOn: false,
@@ -108,7 +116,10 @@ const ThreeDStore = (props: { imageData: ImageNode[] }) => {
           />
         ))}
       </Head>
-      <BackgroundContainer>
+      <BackgroundContainer
+        setMenu={setMenu}
+        setSelectedProduct={setSelectedProduct}
+      >
         <ToastContainer position="top-right" />
         <ThreeDHeader setMenu={setMenu} displayIcons={iconsToDisplay} />
 
