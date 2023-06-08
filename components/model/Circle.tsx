@@ -35,6 +35,7 @@ export const Circle = ({ onDoubleClick, ...props }: MeshProps) => {
       onDoubleClick={onDoubleClick}
       onPointerEnter={(e) => {
         e.object.scale.set(1.1, 1.1, 1.1)
+        console.log(e.object)
         document.body.style.cursor = "pointer"
       }}
       onPointerOut={(e) => {

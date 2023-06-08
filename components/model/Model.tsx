@@ -33,6 +33,7 @@ export const TheModel = ({
     "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty.glb"
   )
   const { scene } = gltf
+  // console.log(scene, 'thisi s the scene')
 
   const clickableObjects = scene.children.filter(
     ({ name }) => clickableNames.indexOf(name as Clickable["name"]) > -1
@@ -51,9 +52,6 @@ export const TheModel = ({
       const vector = new Vector3(x, y, z)
       setTarget(vector)
       setLerping(true)
-
-      // e.camera.position.lerp(vector, 0.1)
-      // controlRef.current.target.set(x * 1.001, y, z * 1.001)
     }
 
     const circles = circlePositions.map((c) => {
@@ -61,6 +59,7 @@ export const TheModel = ({
         <Circle
           position={c.position}
           key={c.name}
+          name={c.name}
           onDoubleClick={onDoubleClick}
         />
       )

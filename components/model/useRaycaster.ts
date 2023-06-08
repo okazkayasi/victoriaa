@@ -3,6 +3,7 @@ import { useState } from "react"
 import {
   Event,
   Intersection,
+  Mesh,
   Object3D,
   Raycaster,
   Vector2,
@@ -22,6 +23,16 @@ export const useRaycaster = () => {
   return intersects
 }
 
+export const scaleObjOrChildren = (obj: Object3D<Event>, vec: Vector3) => {
+  if ((obj as Mesh).isMesh) {
+    obj.scale.lerp(vec, 0.1)
+  } else {
+    obj.children.forEach((child) => {
+      scaleObjOrChildren(child, vec)
+    })
+  }
+}
+
 // make intersected objects scale up and down
 
 export const scaleUpAndDown = (
@@ -29,30 +40,39 @@ export const scaleUpAndDown = (
   clickableObjects: Object3D<Event>[]
 ) => {
   let clickableName = ""
-  console.log(intersects)
   for (let index = 0; index < intersects.length; index++) {
     const intersect = intersects[index]
 
-    if (
+    const isObjectClickable =
       clickableNames.indexOf(intersect.object.name as Clickable["name"]) !== -1
-    ) {
+    const isObjectParentClickable =
+      clickableNames.indexOf(
+        intersect.object.parent.name as Clickable["name"]
+      ) !== -1
+
+    if (isObjectClickable || isObjectParentClickable) {
       // make cursor a pointer
       document.body.style.cursor = "pointer"
-      console.log("clickable", intersect.object.name)
-      clickableName = intersect.object.name
-      const clickableObject = intersect.object
+      clickableName = isObjectClickable
+        ? intersect.object.name
+        : intersect.object.parent.name
+      const clickableObject = isObjectClickable
+        ? intersect.object
+        : intersect.object.parent
       const sclaeUpVec = new Vector3(1.2, 1.2, 1.2)
-      clickableObject.scale.lerp(sclaeUpVec, 0.1)
+      scaleObjOrChildren(clickableObject, sclaeUpVec)
       break
     } else {
       // make cursor default
-      document.body.style.cursor = "default"
+      if (!intersects.find((i) => i.object.name.startsWith("circle"))) {
+        document.body.style.cursor = "default"
+      }
     }
   }
   clickableObjects.forEach((clickableObject) => {
     if (clickableObject.name !== clickableName) {
-      const scaleDownVec = new Vector3(3, 1, 1)
-      clickableObject.scale.lerp(scaleDownVec, 0.1)
+      const scaleDownVec = new Vector3(1, 1, 1)
+      scaleObjOrChildren(clickableObject, scaleDownVec)
     }
   })
 }
