@@ -35,7 +35,7 @@ export const Cart = ({ closeCart }: { closeCart: () => void }) => {
   return (
     <div className="absolute left-1/2 top-1/2  z-20 -translate-x-1/2 -translate-y-1/2">
       <CloseButton onClick={closeCart} />
-      <div className="relative w-[450px] bg-white bg-opacity-80">
+      <div className="relative w-[450px] bg-white bg-opacity-95">
         <div className="h-[420px] overflow-hidden">
           <div className="h-[420px] overflow-y-auto px-18 py-14">
             {numberOfItems > 0 ? (

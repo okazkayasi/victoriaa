@@ -27,6 +27,7 @@ const modelUrl = USE_LOCAL
   : "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty_v3.glb"
 
 export const TheModel = ({
+  menu,
   lerping,
   setLerping,
   target,
@@ -34,6 +35,7 @@ export const TheModel = ({
   setSelectedProduct,
   setMenu,
 }: {
+  menu: MenuType
   lerping: boolean
   setLerping: (lerping: boolean) => void
   target: Vector3
@@ -41,6 +43,8 @@ export const TheModel = ({
   setMenu: Dispatch<SetStateAction<MenuType>>
   setSelectedProduct: Dispatch<SetStateAction<Products>>
 }) => {
+  const isAnyMenuOn = Object.values(menu).some((v) => v)
+
   const controlRef = useRef(null)
 
   const { forward, backward, left, right } = usePersonControls()
@@ -130,6 +134,7 @@ export const TheModel = ({
         reverseOrbit={true}
         enablePan={false}
         enableZoom={false}
+        enabled={!isAnyMenuOn}
         ref={controlRef}
       />
       <pointLight position={[CenterX, CenterY + 2, CenterZ]} intensity={0.5} />

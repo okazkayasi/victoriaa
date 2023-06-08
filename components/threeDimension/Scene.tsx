@@ -8,9 +8,11 @@ import { CENTERS } from "../model/constants"
 import { Loader } from "./Loader"
 
 export const Scene = ({
+  menu,
   setMenu,
   setSelectedProduct,
 }: {
+  menu: MenuType
   setMenu: Dispatch<SetStateAction<MenuType>>
   setSelectedProduct: Dispatch<SetStateAction<Products>>
 }) => {
@@ -37,6 +39,7 @@ export const Scene = ({
         <Suspense fallback={<Loader />}>
           <color attach="background" args={["#171720"]} />
           <TheModel
+            menu={menu}
             lerping={lerping}
             setLerping={setLerping}
             target={target}

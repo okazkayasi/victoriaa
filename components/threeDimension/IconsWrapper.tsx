@@ -13,7 +13,7 @@ export const IconWrapper = ({
   iconName: IconNames
 }) => {
   return displayIcons.includes(iconName) ? (
-    <button onClick={onClick}>
+    <button onClick={onClick} className="focus-visible:outline-none">
       <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white">
         {children}
       </div>

@@ -55,14 +55,30 @@ export const ProductNames: Products[] = [
   "time_to_detox",
 ]
 
+const initialMenu: MenuType = {
+  tutorialOn: false,
+  settingsOn: false,
+  cartOn: false,
+  profileOn: false,
+  productOn: false,
+}
+
 const ThreeDStore = () => {
-  const [menu, setMenu] = useState<MenuType>({
-    tutorialOn: false,
-    settingsOn: false,
-    cartOn: false,
-    profileOn: false,
-    productOn: false,
-  })
+  const [menu, setMenu] = useState<MenuType>(initialMenu)
+
+  const escapeEvent = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setMenu(initialMenu)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", escapeEvent)
+    return () => {
+      window.removeEventListener("keydown", escapeEvent)
+    }
+  }, [])
+
   const [tutorialStep, setTutorialStep] = useState<number>(0)
   const [profileFormStep, setProfileFormStep] = useState<ProfileSteps>("start")
   const iconsToDisplay = getIconsToDisplay(tutorialStep, menu.tutorialOn)
@@ -82,21 +98,6 @@ const ThreeDStore = () => {
     }
   }, [isFirstTime, setMenu])
 
-  // const { cart, refetch: refetchCart } = useCurrentCart()
-  // const { data: productsData } = useProducts()
-  // const productList = productsData?.data.products.edges
-
-  // const removeFirst = () => {
-  //   const firstLineId =
-  //     "gid://shopify/CartLine/107014d4-9dab-4251-a3b3-967ca094345d?cart=c1-93dd1477beb677d7e16d686aa804351a"
-
-  //   void deleteFromCart({ lineId: firstLineId }).then(() => {
-  //     console.log("deleted and refetching cart")
-  //     void refetchCart()
-  //   })
-  // }
-
-  // const prodVarLens = productList?.map((p) => p.node.variants.edges.length)
   return (
     <>
       <Head>
@@ -119,6 +120,7 @@ const ThreeDStore = () => {
       </Head>
       <Layout>
         <BackgroundContainer
+          menu={menu}
           setMenu={setMenu}
           setSelectedProduct={setSelectedProduct}
         >

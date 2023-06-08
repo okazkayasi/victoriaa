@@ -77,7 +77,7 @@ export const Profile = ({
   return (
     <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
       <CloseButton onClick={closeProfile} color="white" />
-      <div className="relative h-[575px] w-[450px] bg-main bg-opacity-80 px-14 pt-15">
+      <div className="relative h-[575px] w-[450px] bg-main bg-opacity-95 px-14 pt-15">
         {step === "start" && <ProfileStart setStep={setStep} />}
         {step === "age-form" && <AgeForm setStep={setStep} />}
         {step === "beauty-form" && <BeautyConcernForm setStep={setStep} />}
