@@ -1,6 +1,6 @@
 import { OrbitControls, useGLTF } from "@react-three/drei"
 import { ThreeEvent, useFrame } from "@react-three/fiber"
-import { useMemo, useRef } from "react"
+import { useEffect, useMemo, useRef } from "react"
 import { Vector3 } from "three"
 import { Circle } from "./Circle"
 import {
@@ -11,7 +11,7 @@ import {
   clickableNames,
 } from "./constants"
 import { move, rotate, usePersonControls } from "./usePersonControls"
-import { scaleUpAndDown, useRaycaster } from "./useRaycaster"
+import { scaleProductsUpAndDown, useRaycaster } from "./useRaycaster"
 
 export const TheModel = ({
   lerping,
@@ -68,11 +68,18 @@ export const TheModel = ({
   }, [])
 
   const intersects = useRaycaster()
+
+  const dblClickListener = (e: MouseEvent) => {}
+  useEffect(() => {
+    window.addEventListener("dblclick", dblClickListener)
+
+    return () => {
+      window.removeEventListener("dblclick", dblClickListener)
+    }
+  }, [])
+
   useFrame((state, delta) => {
-    // check if movement
-
-    scaleUpAndDown(intersects, clickableObjects)
-
+    scaleProductsUpAndDown(intersects, clickableObjects)
     if (backward || forward || left || right) {
       setLerping(false)
       setTarget(state.camera.position)
