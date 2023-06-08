@@ -1,9 +1,11 @@
+import { productVariantMatching } from "components/model/constants"
+import { useState } from "react"
 import {
   deleteFromCart,
+  updateCartItem,
   type CartItemData,
 } from "../../utils/apiOperations/cartOps"
 import { useCurrentCart } from "../../utils/hooks/useCurrentCart"
-import { noop } from "../../utils/noop"
 import { toastSuccess } from "../../utils/toast"
 import { PureCartItem } from "./PureCartItem"
 
@@ -14,7 +16,12 @@ export type CartItemProps = {
 }
 
 export const CartItem = ({ product }: CartItemProps) => {
-  const { refetch } = useCurrentCart()
+  const [loading, setLoading] = useState(false)
+  const { refetch, isLoading } = useCurrentCart()
+
+  const productVariantId = productVariantMatching.find(
+    (p) => p.productId === product.merchandise.product.id
+  )?.variantId
 
   const deleteProductFromCart = async () => {
     await deleteFromCart({ lineId: product.id }).then(() => {
@@ -25,8 +32,32 @@ export const CartItem = ({ product }: CartItemProps) => {
   }
 
   // TODO: implement increment and decrement
-  const incrementItem = noop
-  const decrementItem = noop
+  const incrementItem = async () => {
+    setLoading(true)
+    if (!productVariantId) return
+    await updateCartItem({
+      lineId: product.id,
+      quantity: product.quantity + 1,
+      variantId: productVariantId,
+    }).then(() => {
+      void refetch().then(() => {
+        setLoading(false)
+      })
+    })
+  }
+  const decrementItem = async () => {
+    if (!productVariantId || product.quantity === 1) return
+    setLoading(true)
+    await updateCartItem({
+      lineId: product.id,
+      quantity: product.quantity - 1,
+      variantId: productVariantId,
+    }).then(() => {
+      void refetch().then(() => {
+        setLoading(false)
+      })
+    })
+  }
 
   return (
     <PureCartItem
@@ -41,6 +72,7 @@ export const CartItem = ({ product }: CartItemProps) => {
       incrementItem={incrementItem}
       decrementItem={decrementItem}
       color="black"
+      loading={loading}
     />
   )
 }

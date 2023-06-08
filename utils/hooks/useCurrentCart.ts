@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react"
-import {
-  createCart,
-  useCart,
-  type CartData,
-} from "../apiOperations/cartOps"
+import { createCart, useCart, type CartData } from "../apiOperations/cartOps"
 import { useCurrentUser } from "../hooks/useCurrentUser"
 
 export const useCurrentCart = () => {
@@ -28,5 +24,5 @@ export const useCurrentCart = () => {
     }
   }, [user, cartData, isLoading, error, isSuccess, refetch])
 
-  return { cart, refetch } as const
+  return { cart, refetch, isLoading } as const
 }
