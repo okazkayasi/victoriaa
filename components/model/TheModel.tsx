@@ -1,7 +1,14 @@
 import { OrbitControls, useGLTF } from "@react-three/drei"
 import { ThreeEvent, useFrame } from "@react-three/fiber"
-import { MenuType, Products } from "pages/3d-store"
-import { Dispatch, SetStateAction, useEffect, useMemo, useRef } from "react"
+import { MenuType, Products, initialMenu } from "pages/3d-store"
+import {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import { Vector3 } from "three"
 import { Circle } from "./Circle"
 import {
@@ -13,6 +20,7 @@ import {
   HIDE_CIRCLES_DISTANCE,
   circlePositions,
   clickableNames,
+  clickables,
 } from "./constants"
 import { move, rotate, usePersonControls } from "./usePersonControls"
 import {
@@ -21,12 +29,13 @@ import {
   useRaycaster,
 } from "./useRaycaster"
 
-const USE_LOCAL = false
+const USE_LOCAL = true // TODO: change
 const modelUrl = USE_LOCAL
   ? "/models/demain_beauty_v3.glb"
   : "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty_v3.glb"
 
 export const TheModel = ({
+  menu,
   lerping,
   setLerping,
   target,
@@ -34,6 +43,7 @@ export const TheModel = ({
   setSelectedProduct,
   setMenu,
 }: {
+  menu: MenuType
   lerping: boolean
   setLerping: (lerping: boolean) => void
   target: Vector3
@@ -41,6 +51,27 @@ export const TheModel = ({
   setMenu: Dispatch<SetStateAction<MenuType>>
   setSelectedProduct: Dispatch<SetStateAction<Products>>
 }) => {
+  const [lerpingToFar, setLerpingToFar] = useState(false)
+  const [lerpingFromFar, setLerpingFromFar] = useState(false)
+  const [lerpingPrevPos, setLerpingPrevPos] = useState(
+    new Vector3(CenterX, CenterY, CenterZ)
+  )
+
+  const lerpBack = () => {
+    setLerpingToFar(false)
+    setTarget(lerpingPrevPos)
+  }
+
+  useEffect(() => {
+    if (!menu.mobileMenuOn) {
+      setLerpingFromFar(true)
+    }
+  }, [menu.mobileMenuOn])
+
+  const isAnyMenuOn = Object.entries(menu)
+    .filter((a) => a[0] !== "productOn")
+    .some((a) => a[1])
+
   const controlRef = useRef(null)
 
   const { forward, backward, left, right } = usePersonControls()
@@ -65,6 +96,10 @@ export const TheModel = ({
       const vector = new Vector3(x, y, z)
       setTarget(vector)
       setLerping(true)
+      if (object.name.startsWith("circleFar")) {
+        setLerpingToFar(true)
+        setLerpingPrevPos(e.camera.position.clone())
+      }
     }
 
     const circles = circlePositions.map((c) => {
@@ -73,6 +108,7 @@ export const TheModel = ({
           position={c.position}
           key={c.name}
           name={c.name}
+          size={c.size}
           onDoubleClick={onDoubleClick}
         />
       )
@@ -84,8 +120,10 @@ export const TheModel = ({
   const fun = () => {
     const productName = openProductModal(intersects)
     if (productName) {
+      const product = clickables.find((o) => o.name === productName)
+
       setMenu((prev) => ({ ...prev, productOn: true }))
-      setSelectedProduct("go_for_detox")
+      setSelectedProduct(product.localName)
     }
   }
   useEffect(() => {
@@ -120,6 +158,22 @@ export const TheModel = ({
         target.z * 1.001
       )
       controlRef.current.target.lerp(targetVec, delta * 2)
+
+      if (state.camera.position.distanceTo(target) < 0.1) {
+        setLerping(false)
+        if (lerpingToFar) {
+          setMenu({ ...initialMenu, mobileMenuOn: true })
+          setLerpingToFar(false)
+        }
+      }
+    }
+    if (lerpingFromFar) {
+      state.camera.position.lerp(lerpingPrevPos, delta * 2)
+      controlRef.current.target.lerp(lerpingPrevPos, delta * 2)
+
+      if (state.camera.position.distanceTo(lerpingPrevPos) < 0.1) {
+        setLerpingFromFar(false)
+      }
     }
   })
 
@@ -130,9 +184,26 @@ export const TheModel = ({
         reverseOrbit={true}
         enablePan={false}
         enableZoom={false}
+        enabled={!isAnyMenuOn}
         ref={controlRef}
       />
       <pointLight position={[CenterX, CenterY + 2, CenterZ]} intensity={0.5} />
+      {/* <pointLight
+        position={[CenterX + FAR_CIRCLE_OFFSET, CenterY + 2, CenterZ]}
+        intensity={0.5}
+      />
+      <pointLight
+        position={[CenterX - FAR_CIRCLE_OFFSET, CenterY + 2, CenterZ]}
+        intensity={0.5}
+      />
+      <pointLight
+        position={[CenterX, CenterY + 2, CenterZ + FAR_CIRCLE_OFFSET]}
+        intensity={0.5}
+      />
+      <pointLight
+        position={[CenterX, CenterY + 2, CenterZ - FAR_CIRCLE_OFFSET]}
+        intensity={0.5}
+      /> */}
       <primitive object={scene} />
       <ambientLight intensity={2} />
       {circles}

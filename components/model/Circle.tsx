@@ -1,11 +1,15 @@
 import { MeshProps, useFrame, useLoader } from "@react-three/fiber"
-import { useRef, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import * as THREE from "three"
 import { debounce } from "../../utils/debounce"
 import { showHideCircles } from "./showHideCircles"
 import { usePersonControls } from "./usePersonControls"
 
-export const Circle = ({ onDoubleClick, ...props }: MeshProps) => {
+export const Circle = ({
+  onDoubleClick,
+  size,
+  ...props
+}: { size: number } & MeshProps) => {
   const [startScaleUp, setStartScaleUp] = useState(false)
 
   const texture = useLoader(THREE.TextureLoader, "/models/POI.png")
@@ -28,6 +32,10 @@ export const Circle = ({ onDoubleClick, ...props }: MeshProps) => {
     }
   })
 
+  const geometry = useMemo(() => {
+    return new THREE.CircleGeometry(size, 32)
+  }, [])
+
   return (
     <mesh
       {...props}
@@ -35,15 +43,14 @@ export const Circle = ({ onDoubleClick, ...props }: MeshProps) => {
       onDoubleClick={onDoubleClick}
       onPointerEnter={(e) => {
         e.object.scale.set(1.1, 1.1, 1.1)
-        console.log(e.object)
         document.body.style.cursor = "pointer"
       }}
       onPointerOut={(e) => {
         e.object.scale.set(1, 1, 1)
         document.body.style.cursor = "default"
       }}
+      geometry={geometry}
     >
-      <circleGeometry args={[0.1, 32]} />
       <meshBasicMaterial map={texture} />
     </mesh>
   )

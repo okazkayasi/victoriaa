@@ -35,17 +35,17 @@ export const Cart = ({ closeCart }: { closeCart: () => void }) => {
   return (
     <div className="absolute left-1/2 top-1/2  z-20 -translate-x-1/2 -translate-y-1/2">
       <CloseButton onClick={closeCart} />
-      <div className="relative w-[450px] bg-white bg-opacity-80">
+      <div className="relative w-[450px] bg-white bg-opacity-95">
         <div className="h-[420px] overflow-hidden">
           <div className="h-[420px] overflow-y-auto px-18 py-14">
             {numberOfItems > 0 ? (
               <div>
                 <div className="pb-3.5">
                   <Title size="medium" color="main" bold className="mb-2.5">
-                    MY CART ({numberOfItems})
+                    {t("common.cart.title")} ({numberOfItems})
                   </Title>
                   <Text size="xsmall" color="black">
-                    You can benefit from free shipping!
+                    {t("common.cart.non_empty_text")}
                   </Text>
                 </div>
                 <div className="h-2 rounded-3xl bg-black" />
@@ -67,10 +67,10 @@ export const Cart = ({ closeCart }: { closeCart: () => void }) => {
               <div>
                 <div className="pb-3.5">
                   <Title size="medium" color="main" bold className="mb-2.5">
-                    MY CART ({numberOfItems})
+                    {t("common.cart.title")} ({numberOfItems})
                   </Title>
                   <Text size="xsmall" color="black">
-                    You have no items in cart!
+                    {t("common.cart.empty_text")}
                   </Text>
                 </div>
               </div>
@@ -85,7 +85,7 @@ export const Cart = ({ closeCart }: { closeCart: () => void }) => {
                   <div>
                     <CartSummaryItem
                       leftText={t("common.cart.summary_subtotal_text")}
-                      rightText={subtotal} //eur
+                      rightText={subtotal}
                       size="small"
                     />
                   </div>
@@ -93,7 +93,7 @@ export const Cart = ({ closeCart }: { closeCart: () => void }) => {
                     <div>
                       <CartSummaryItem
                         leftText={t("common.cart.summary_discount_text")}
-                        rightText="-1.00€" //eur
+                        rightText="-1.00€"
                         icon={<DiscountIcon />}
                         size="small"
                       />

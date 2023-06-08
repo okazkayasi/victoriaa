@@ -17,6 +17,15 @@ export type CartItemData = {
   merchandise: {
     product: {
       title: string
+      id: string
+      images: {
+        edges: {
+          node: {
+            id: string
+            url: string
+          }
+        }[]
+      }
     }
   }
 }
@@ -69,6 +78,7 @@ export const createCart = () => {
 
 export const addToCart = (data: { variantId: string; quantity: number }) => {
   const token = getAuthToken()
+  console.log(data.variantId, "variantId")
   return axios
     .post<any>("/my/cart/lines", data, {
       headers: {
@@ -89,17 +99,17 @@ export const deleteFromCart = (data: { lineId: string }) => {
     .then((res) => console.log(res.data, "data after delete"))
 }
 
-export const updateCartItem = (data: { lineId: string; quantity: number }) => {
+export const updateCartItem = (data: {
+  lineId: string
+  quantity: number
+  variantId: string
+}) => {
   const token = getAuthToken()
   return axios
-    .put<any>(
-      "my/cart/lines",
-      { ...data, variantId: "" },
-      {
-        headers: {
-          Authorization: token ? `Bearer ${token}` : "",
-        },
-      }
-    )
+    .put<any>("my/cart/lines", data, {
+      headers: {
+        Authorization: token ? `Bearer ${token}` : "",
+      },
+    })
     .then((res) => res.data)
 }

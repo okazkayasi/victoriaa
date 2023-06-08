@@ -1,9 +1,13 @@
 import { type Dispatch, type SetStateAction } from "react"
+import { useTranslation } from "react-i18next"
 import { type ProfileSteps } from "../../pages/3d-store"
 import { addToCart } from "../../utils/apiOperations/cartOps"
 import { toastSuccess } from "../../utils/toast"
 import { useSolarProfile } from "../../utils/useIsFirstTime"
-import { useProfileProducts } from "../../utils/useProfileProducts"
+import {
+  CHECK_FOR_QUANTITY_AVAILABLE,
+  useProfileProducts,
+} from "../../utils/useProfileProducts"
 import { Button } from "../button/Button"
 import { ProductCartItem } from "../profile/ProductCartItem"
 import { Title } from "../typography/Typography"
@@ -15,6 +19,7 @@ export const Products = ({
   closeProfile: () => void
   setStep: Dispatch<SetStateAction<ProfileSteps>>
 }) => {
+  const { t } = useTranslation()
   const { solarProfile } = useSolarProfile()
 
   const [suggestedProds, setSuggestedProds] = useProfileProducts(solarProfile)
@@ -62,7 +67,11 @@ export const Products = ({
         variantId: prod.variants.edges[0]?.node.id,
         quantity: prod.quantity,
       }))
-      .filter(({ quantity }) => quantity !== undefined && quantity > 0)
+      .filter(
+        ({ quantity }) =>
+          !CHECK_FOR_QUANTITY_AVAILABLE ||
+          (quantity !== undefined && quantity > 0)
+      )
       .filter(({ variantId }) => variantId != null)
 
     const promises = variantsWithQuantities.map((variant) => {
@@ -88,7 +97,7 @@ export const Products = ({
     <div>
       <div className="mb-11">
         <Title as="h2" size="xsmall" bold color="white">
-          YOUR 100% PERSONALIZED SELECTION!
+          {t("common.form.products.title")}
         </Title>
       </div>
       <div className="mb-6 flex h-[350px] flex-col items-center">
@@ -120,7 +129,7 @@ export const Products = ({
           size="small"
           onClick={addProductsToCart}
         >
-          ADD TO YOUR CART
+          {t("common.form.products.add_to_cart_button")}
         </Button>
       </div>
     </div>

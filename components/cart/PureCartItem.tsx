@@ -1,6 +1,7 @@
 import clsx from "clsx"
 import Image from "next/image"
 import { useTranslation } from "react-i18next"
+import { BeatLoader } from "react-spinners"
 import { twMerge } from "tailwind-merge"
 import { Text } from "../typography/Typography"
 
@@ -12,6 +13,7 @@ export const NumberCounter = (props: {
   product: PureCartProd
   incrementItem: () => void
   decrementItem: () => void
+  loading?: boolean
 }) => {
   const isBlack = props.color === "black"
 
@@ -39,9 +41,13 @@ export const NumberCounter = (props: {
             -
           </button>
         </div>
-        <Text size="xsmall" color={isBlack ? "black" : "white"} bold>
-          {props?.quantity ?? 0}
-        </Text>
+        {props.loading ? (
+          <BeatLoader color={isBlack ? "black" : "white"} size={3} />
+        ) : (
+          <Text size="xsmall" color={isBlack ? "black" : "white"} bold>
+            {props?.quantity ?? 0}
+          </Text>
+        )}
         <div className="px-3">
           <button
             className={clsx(
@@ -79,6 +85,7 @@ type PureCartItemType = {
   deleteItem: () => void
   incrementItem: () => void
   decrementItem: () => void
+  loading?: boolean
 }
 
 export const PureCartItem = ({
@@ -88,6 +95,7 @@ export const PureCartItem = ({
   deleteItem,
   incrementItem,
   decrementItem,
+  loading,
 }: PureCartItemType) => {
   const { t } = useTranslation()
   const isBlack = color === "black"
@@ -123,6 +131,7 @@ export const PureCartItem = ({
               product={product}
               incrementItem={incrementItem}
               decrementItem={decrementItem}
+              loading={loading}
             />
             <button className={clsx("ml-3 p-0 text-p-xs")} onClick={deleteItem}>
               <Text

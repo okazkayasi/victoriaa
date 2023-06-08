@@ -1,5 +1,6 @@
 import { useEffect, type Dispatch, type SetStateAction } from "react"
 import { useForm } from "react-hook-form"
+import { useTranslation } from "react-i18next"
 import { ProfileSteps } from "../../pages/3d-store"
 import { toastError } from "../../utils/toast"
 import { useSolarProfile } from "../../utils/useIsFirstTime"
@@ -8,13 +9,12 @@ import { Title } from "../typography/Typography"
 import { AgeOptions } from "./CurrentProfileContext"
 import { NextStepButton } from "./Profile"
 
-
 const ageFormOptions: AgeOptions[] = [
-  "Enfant",
-  "Adolescent",
-  "+ 20 ans",
-  "+ 40 ans",
-  "+ 50 ans",
+  "child",
+  "teenager",
+  "twenty",
+  "forty",
+  "fifty",
 ]
 
 type AgeFormType = {
@@ -26,6 +26,7 @@ export const AgeForm = ({
 }: {
   setStep: Dispatch<SetStateAction<ProfileSteps>>
 }) => {
+  const { t } = useTranslation()
   const { solarProfile, setSolarProfile } = useSolarProfile()
 
   const form = useForm<AgeFormType>({
@@ -57,7 +58,7 @@ export const AgeForm = ({
       <div className="pb-20">
         <div className="mb-11">
           <Title size="xsmall" bold color="white">
-            HOW OLD ARE YOU ?
+            {t("common.form.age_form.title")}
           </Title>
         </div>
         <form onSubmit={handleSubmit(submit)}>

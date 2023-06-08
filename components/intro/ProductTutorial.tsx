@@ -15,7 +15,6 @@ export const ProductTutorial = () => {
       }}
     >
       <video
-        controls={true}
         autoPlay={true}
         muted={true}
         className="fixed inset-0 -z-10 h-screen w-screen object-cover"
@@ -24,7 +23,7 @@ export const ProductTutorial = () => {
         }}
       >
         <source
-          src="https://victoria-vr.s3.us-east-2.amazonaws.com/Chafik_vid2__V3.mov"
+          src="https://victoria-vr.s3.us-east-2.amazonaws.com/Chafik_vid2__V3_v1.mp4"
           type="video/mp4"
         />
         <img src="/images/logo.png" alt="fallback img" />

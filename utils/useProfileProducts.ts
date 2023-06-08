@@ -2,34 +2,36 @@ import { useEffect, useState } from "react"
 import { type SolarProfile } from "../components/profile/CurrentProfileContext"
 import { useProducts, type ProdNode } from "../utils/apiOperations/productOps"
 
+export const CHECK_FOR_QUANTITY_AVAILABLE = false
+
 export const productMap = {
   goForDetox: {
     name: "Go for Detox",
-    id: "gid://shopify/Product/8338391662867",
+    id: "gid://shopify/Product/8412770337043",
   },
   goForGlow: {
     name: "Go for Glow",
-    id: "gid://shopify/Product/8338391695635",
+    id: "gid://shopify/Product/8412770468115",
   },
   goForProtectionSkincare: {
     name: "Go for Protection Skincare",
-    id: "gid://shopify/Product/8338391793939",
+    id: "gid://shopify/Product/8412770861331",
   },
   goForProtectionDietary: {
     name: "Go For Protection Dietary",
-    id: "gid://shopify/Product/8344688689427",
+    id: "gid://shopify/Product/8412762505491",
   },
   timeToRepair: {
     name: "Time to Repair",
-    id: "gid://shopify/Product/8338391826707",
+    id: "gid://shopify/Product/8412771156243",
   },
   happyAge: {
     name: "Happy Age",
-    id: "gid://shopify/Product/8338391859475",
+    id: "gid://shopify/Product/8412771418387",
   },
   sculptAndGlow: {
     name: "Sculpt & Glow",
-    id: "gid://shopify/Product/8338391892243",
+    id: "gid://shopify/Product/8412758343955",
   },
 } as const
 
@@ -57,8 +59,8 @@ export const useProfileProducts = (
     const antiAging = currentProfile.beautyConcern.antiAge ?? "0"
 
     const age = currentProfile.age
-    const isChildren = age === "Enfant"
-    const isOver40 = age === "+ 40 ans" || age === "+ 50 ans"
+    const isChildren = age === "child"
+    const isOver40 = age === "forty" || age === "fifty"
 
     const suggestedCart: {
       name: ProdMapType[keyof ProdMapType]["name"]
@@ -111,8 +113,9 @@ export const useProfileProducts = (
       .filter((product) => product.node.availableForSale)
       .filter(
         (product) =>
-          product.node.variants.edges[0]?.node.quantityAvailable &&
-          product.node.variants.edges[0]?.node.quantityAvailable > 0
+          !CHECK_FOR_QUANTITY_AVAILABLE ||
+          (product.node.variants.edges[0]?.node.quantityAvailable &&
+            product.node.variants.edges[0]?.node.quantityAvailable > 0)
       )
 
     const suggestedProductFullWithQuantity = suggestedProductFull?.map(

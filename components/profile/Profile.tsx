@@ -1,5 +1,6 @@
 import { EmptyProfile } from "components/shapes/EmptyProfile"
 import { type Dispatch, type SetStateAction } from "react"
+import { useTranslation } from "react-i18next"
 import { Button } from "../../components/button/Button"
 import { LoadingBar } from "../../components/loadingBar/LoadingBar"
 import { AgeForm } from "../../components/profile/AgeForm"
@@ -45,7 +46,8 @@ export const NextStepButton = ({
   onClick?: () => void
   fill: number
 }) => {
-  const displayText = text || "Next Step"
+  const { t } = useTranslation()
+  const displayText = text || t("common.form.next_step_button")
   return (
     <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center">
       <Button
@@ -75,7 +77,7 @@ export const Profile = ({
   return (
     <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
       <CloseButton onClick={closeProfile} color="white" />
-      <div className="relative h-[575px] w-[450px] bg-main bg-opacity-80 px-14 pt-15">
+      <div className="relative h-[575px] w-[450px] bg-main bg-opacity-95 px-14 pt-15">
         {step === "start" && <ProfileStart setStep={setStep} />}
         {step === "age-form" && <AgeForm setStep={setStep} />}
         {step === "beauty-form" && <BeautyConcernForm setStep={setStep} />}

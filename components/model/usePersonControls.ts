@@ -38,7 +38,6 @@ export const usePersonControls = () => {
 }
 
 export const move = (state: RootState, controlRef: any, forward: boolean) => {
-  console.log(forward, "forward")
   const moveSpeed = forward ? MOVE_SPEED : -1 * MOVE_SPEED
   const cameraDirection = new THREE.Vector3()
   state.camera.getWorldDirection(cameraDirection)

@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import { type UseFormRegister } from "react-hook-form"
+import { useTranslation } from "react-i18next"
 import { twMerge } from "tailwind-merge"
 import { montserrat, Text } from "../typography/Typography"
 
@@ -17,10 +18,11 @@ export const RadioGroupSmall = ({
   className,
   ...props
 }: RadioGroupSmallProps) => {
+  const { t } = useTranslation()
   return (
     <div className={clsx("w-full rounded bg-white px-6 pb-2 pt-2", className)}>
       <Text size="xsmall" color="black" className="mb-1">
-        {props.text}
+        {t("common.form.beauty_concern_form." + props.text)}
       </Text>
       <ul className={clsx("flex gap-7 px-6")}>
         {props.options.map((option) => (

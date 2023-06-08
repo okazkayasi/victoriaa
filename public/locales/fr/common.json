@@ -1,16 +1,5 @@
 {
   "common": {
-    "button": "asfs",
-    "dashboard": {
-      "title": "MES SERVICES",
-      "cart_card_text": "VOIR MON PANIER",
-      "play_card_text": "JOUER AVEC DEMAIN",
-      "nft_card_text": "MON NFT ET MON WALLET",
-      "profile_card_text": "MON PROFIL SOLAIRE",
-      "metaverse_title": "LE MÉTAVERS",
-      "metaverse_button_text": "ENTREZ DANS LE METAVERSE STORE",
-      "intro_button_text": "Revoir l’introduction"
-    },
     "tutorial": {
       "intro": {
         "caption": "xxBIENVENUE DANS LE METAVERSE STORE DE DEMAIN BEAUTYxx",
@@ -33,6 +22,40 @@
       "summary_total_text": "Total",
       "checkout_button_text": "PASSEZ LA COMMANDE !"
     },
+    "form": {
+      "products": {
+        "title": "VOTRE SELECTION 100%PERSONNALISÉ !",
+        "add_to_cart_button": "VOTRE PANIER"
+      },
+      "next_step_button": "Prochaine étape",
+      "result": {
+        "title": "VOTRE PROFIL SOLAIRE",
+        "subtitle": "",
+        "redo_button": "REFAIRE",
+        "products_button": "Voir les produits"
+      },
+      "age_form": {
+        "title": "QUEL ÂGE AVEZ-VOUS ?",
+        "child": "Enfant",
+        "teenager": "Adolescent",
+        "twenty": "+ 20 ans",
+        "forty": "+ 40 ans",
+        "fifty": "+ 50 ans"
+      },
+      "beauty_concern_form": {
+        "title": "NOTEZ VOTRE INTÉRÊT VIS-À -VIS DE NOS ENGAGEMENTS",
+        "no_concern": "aucune préoccupation",
+        "high_concern": "forte préoccupation",
+        "anti_imperfection": "Anti-imperfections",
+        "hydration": "Hydratation",
+        "eclat": "Éclat",
+        "anti_age": "Anti-âge",
+        "clean": "Clean",
+        "organic": "Biologique",
+        "microbiome": "Respect du microbiome",
+        "planet": "Respect de la planète"
+      }
+    },
     "profile_form_cart": {
       "title": "VOTRE PROFIL SOLAIRE",
       "restart_button_text": "REFAIRE",
@@ -44,8 +67,7 @@
         "title": "Paramètres",
         "lang_option": "Langues",
         "audio_option": "Audio",
-        "preferences_option": "Préférences",
-        "metaverse_button_text": "ENTREZ DANS LE METAVERSE STORE"
+        "preferences_option": "Préférences"
       },
       "languages": {
         "title": "Langues",
@@ -377,6 +399,24 @@
         "subheadings": "COMPLÉMENTS ALIMENTAIRES",
         "productFeature": "Renforce le système immunitaire et aide le corps à mieux se protéger des agressions extérieures accélératrices du vieillissement cutané",
         "price": "35,00 €"
+      },
+      "zero_waste": {
+        "name": "CLÉ ZÉRO DÉCHET",
+        "subheadings": "",
+        "productFeature": "",
+        "price": "2,90 €"
+      },
+      "cleansing_wipe": {
+        "name": "LINGETTES DÉMAQUILLANTES",
+        "subheadings": "",
+        "productFeature": "",
+        "price": "4,90 €"
+      },
+      "gua_sha": {
+        "name": "GUA SHA",
+        "productFeature": "",
+        "subheadings": "À venir",
+        "price": ""
       }
     }
   }

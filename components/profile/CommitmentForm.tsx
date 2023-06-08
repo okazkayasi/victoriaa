@@ -71,28 +71,28 @@ export const CommitmentForm = ({
             register={register}
             selectedValue={cleanValue}
             options={concernOptions}
-            text="Clean"
+            text="clean"
             name="clean"
           />
           <RadioGroupSmall
             register={register}
             selectedValue={organicValue}
             options={concernOptions}
-            text="Biologique"
+            text="organic"
             name="organic"
           />
           <RadioGroupSmall
             register={register}
             selectedValue={microbiomeValue}
             options={concernOptions}
-            text="Respect du microbiome"
+            text="microbiome"
             name="microbiome"
           />
           <RadioGroupSmall
             register={register}
             selectedValue={planetValue}
             options={concernOptions}
-            text="Respect de la planète"
+            text="planet"
             name="planet"
           />
         </div>

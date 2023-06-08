@@ -1,4 +1,5 @@
 import { Layout } from "components/layout/Layout"
+import { MobileMenu } from "components/mobileModal/MobileMenu"
 import { type GetStaticProps } from "next"
 import Head from "next/head"
 import { useEffect, useState } from "react"
@@ -24,6 +25,7 @@ export type MenuType = {
   cartOn: boolean
   profileOn: boolean
   productOn: boolean
+  mobileMenuOn: boolean
 }
 
 export type ProfileSteps =
@@ -43,26 +45,35 @@ export type Products =
   | "happy_age"
   | "sculpt_glow"
   | "time_to_detox"
+  | "zero_waste"
+  | "gua_sha"
+  | "cleansing_wipe"
 
-export const ProductNames: Products[] = [
-  "go_for_detox",
-  "go_for_glow",
-  "go_for_protection_skincare",
-  "go_for_protection_dietary",
-  "time_to_repair",
-  "happy_age",
-  "sculpt_glow",
-  "time_to_detox",
-]
+export const initialMenu: MenuType = {
+  tutorialOn: false,
+  settingsOn: false,
+  cartOn: false,
+  profileOn: false,
+  productOn: false,
+  mobileMenuOn: false,
+}
 
 const ThreeDStore = () => {
-  const [menu, setMenu] = useState<MenuType>({
-    tutorialOn: false,
-    settingsOn: false,
-    cartOn: false,
-    profileOn: false,
-    productOn: false,
-  })
+  const [menu, setMenu] = useState<MenuType>(initialMenu)
+
+  const escapeEvent = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setMenu(initialMenu)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", escapeEvent)
+    return () => {
+      window.removeEventListener("keydown", escapeEvent)
+    }
+  }, [])
+
   const [tutorialStep, setTutorialStep] = useState<number>(0)
   const [profileFormStep, setProfileFormStep] = useState<ProfileSteps>("start")
   const iconsToDisplay = getIconsToDisplay(tutorialStep, menu.tutorialOn)
@@ -82,21 +93,6 @@ const ThreeDStore = () => {
     }
   }, [isFirstTime, setMenu])
 
-  // const { cart, refetch: refetchCart } = useCurrentCart()
-  // const { data: productsData } = useProducts()
-  // const productList = productsData?.data.products.edges
-
-  // const removeFirst = () => {
-  //   const firstLineId =
-  //     "gid://shopify/CartLine/107014d4-9dab-4251-a3b3-967ca094345d?cart=c1-93dd1477beb677d7e16d686aa804351a"
-
-  //   void deleteFromCart({ lineId: firstLineId }).then(() => {
-  //     console.log("deleted and refetching cart")
-  //     void refetchCart()
-  //   })
-  // }
-
-  // const prodVarLens = productList?.map((p) => p.node.variants.edges.length)
   return (
     <>
       <Head>
@@ -119,6 +115,7 @@ const ThreeDStore = () => {
       </Head>
       <Layout>
         <BackgroundContainer
+          menu={menu}
           setMenu={setMenu}
           setSelectedProduct={setSelectedProduct}
         >
@@ -156,6 +153,9 @@ const ThreeDStore = () => {
               productName={selectedProduct}
               closeModal={closeMenu("productOn")}
             />
+          )}
+          {menu.mobileMenuOn && (
+            <MobileMenu closeModal={closeMenu("mobileMenuOn")} />
           )}
         </BackgroundContainer>
       </Layout>

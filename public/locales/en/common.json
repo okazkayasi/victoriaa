@@ -1,17 +1,5 @@
 {
   "common": {
-    "button": "asgasggsa",
-    "settings_lang_title": "Languages",
-    "dashboard": {
-      "title": "xx",
-      "cart_card_text": "xx",
-      "play_card_text": "xx",
-      "nft_card_text": "xx",
-      "profile_card_text": "xx",
-      "metaverse_title": "xx",
-      "metaverse_button_text": "xx",
-      "intro_button_text": "xx"
-    },
     "tutorial": {
       "intro": {
         "caption": "BIENVENUE DANS LE METAVERSE STORE DE DEMAIN BEAUTY",
@@ -24,14 +12,48 @@
       }
     },
     "cart": {
-      "title": "xx",
-      "empty_text": "xx",
-      "non_empty_text": "xx",
-      "delete_item_button_text": "xx",
-      "summary_subtotal_text": "xx",
+      "title": "MY CART",
+      "empty_text": "You have no items in cart!",
+      "non_empty_text": "You can benefit from free shipping!",
+      "delete_item_button_text": "Delete Item",
+      "summary_subtotal_text": "Sub-total",
       "summary_discount_text": "xx",
-      "summary_total_text": "xx",
-      "checkout_button_text": "xx"
+      "summary_total_text": "Total",
+      "checkout_button_text": "Go To Purchase"
+    },
+    "form": {
+      "products": {
+        "title": "YOUR 100% PERSONALIZED SELECTION!",
+        "add_to_cart_button": "ADD TO YOUR CART"
+      },
+      "next_step_button": "Next Step",
+      "result": {
+        "title": "YOUR SOLAR PROFILE",
+        "subtitle": "To receive our most personalized recommendations!",
+        "redo_button": "REDO",
+        "products_button": "See Products"
+      },
+      "age_form": {
+        "title": "HOW OLD ARE YOU ?",
+        "child": "Child",
+        "teenager": "Teenager",
+        "twenty": "+ 20 years",
+        "forty": "+ 40 years",
+        "fifty": "+ 50 years"
+      },
+      "beauty_concern_form": {
+        "title": "NOTE DOWN YOUR BEAUTY INTEREST",
+        "no_concern": "No concern",
+        "high_concern": "High concern",
+        "anti_imperfection": "Anti-imperfections",
+        "hydration": "Hydratation",
+        "eclat": "Éclat",
+        "anti_age": "Anti-âge",
+        "clean": "Clean",
+        "organic": "Organic",
+        "microbiome": "Microbiome friendly",
+        "planet": "Planet friendly"
+      }
     },
     "profile_form_cart": {
       "title": "xx",
@@ -41,11 +63,10 @@
     },
     "settings": {
       "main": {
-        "title": "xx",
-        "lang_option": "xx",
-        "audio_option": "xx",
-        "preferences_option": "xx",
-        "metaverse_button_text": "xx"
+        "title": "Settings",
+        "lang_option": "Languages",
+        "audio_option": "Audio",
+        "preferences_option": "Preferences"
       },
       "languages": {
         "title": "Languages",
@@ -375,6 +396,24 @@
         "subheadings": "Food supplemen",
         "productFeature": "Acts from within to strengthen the immune system and help the body to better protect itself from external aggressions that accelerate skin ageing",
         "price": "35,00 €"
+      },
+      "zero_waste": {
+        "name": "ZERO WASTE KEY",
+        "subheadings": "",
+        "productFeature": "",
+        "price": "2,90 €"
+      },
+      "cleansing_wipe": {
+        "name": "CLEANSING WIPES",
+        "subheadings": "",
+        "productFeature": "",
+        "price": "xxx €"
+      },
+      "gua_sha": {
+        "name": "GUA SHA",
+        "productFeature": "",
+        "subheadings": "Coming Soon",
+        "price": "xxx €"
       }
     }
   }

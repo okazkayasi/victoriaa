@@ -14,7 +14,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       animate="enter" // Animated state to variants.enter
       exit="exit" // Exit state (used later) to variants.exit
       transition={{ type: "spring", duration: 2 }}
-      className=""
+      className="flex w-full"
     >
       {children}
     </motion.div>

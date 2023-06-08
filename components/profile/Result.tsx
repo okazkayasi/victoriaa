@@ -1,4 +1,5 @@
 import { useEffect, type Dispatch, type SetStateAction } from "react"
+import { useTranslation } from "react-i18next"
 import { Button } from "../../components/button/Button"
 import { initialProfile } from "../../components/profile/CurrentProfileContext"
 import { NextStepButton } from "../../components/profile/Profile"
@@ -12,8 +13,8 @@ export const Result = ({
 }: {
   setStep: Dispatch<SetStateAction<ProfileSteps>>
 }) => {
+  const { t } = useTranslation()
   const { setSolarProfile, solarProfile } = useSolarProfile()
-  console.log(solarProfile)
 
   useEffect(() => {
     return () => {
@@ -30,10 +31,10 @@ export const Result = ({
     <div>
       <div className="mb-8">
         <Title as="h2" size="xsmall" bold color="white" className="mb-3.5">
-          SET UP YOUR SOLAR PROFILE
+          {t("common.form.result.title")}
         </Title>
         <Text size="small" color="white">
-          To receive our most personalized recommendations!
+          {t("common.form.result.subtitle")}
         </Text>
       </div>
       <div className="relative z-10 mb-4 flex justify-center">
@@ -50,12 +51,12 @@ export const Result = ({
       </div>
       <div>
         <Button className="w-full" onClick={onRedo}>
-          REDO
+          {t("common.form.result.redo_button")}
         </Button>
       </div>
       <NextStepButton
         fill={100}
-        text={"See Product"}
+        text={t("common.form.result.products_button")}
         onClick={() => setStep("products")}
       />
     </div>
