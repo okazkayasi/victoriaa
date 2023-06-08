@@ -35,7 +35,13 @@ export const IntroComponent = ({
             </Title>
           </div>
           <div>
-            <Image src="/images/logo.png" width={318} height={130} alt="logo" />
+            <Image
+              src="/images/logo.png"
+              priority
+              width={318}
+              height={130}
+              alt="logo"
+            />
           </div>
           <div className="mt-2">
             <Text size="medium" color="white">

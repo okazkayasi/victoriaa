@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { AnimatePresence } from "framer-motion"
 import { appWithTranslation } from "next-i18next"
 import { type AppType } from "next/app"
 import Head from "next/head"
@@ -46,7 +47,9 @@ const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
         }
       `}</style>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <AnimatePresence mode="wait">
+          <Component {...pageProps} />
+        </AnimatePresence>
       </QueryClientProvider>
     </>
   )

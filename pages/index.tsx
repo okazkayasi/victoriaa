@@ -5,6 +5,7 @@ import {
   ProductTutorial,
   SkipProductTutorial,
 } from "components/intro/ProductTutorial"
+import { Layout } from "components/layout/Layout"
 import { AnimatePresence } from "framer-motion"
 import { type GetStaticProps } from "next"
 import { useRouter } from "next/router"
@@ -34,30 +35,32 @@ const Index = () => {
   const ceoDisplaysFirstVideo = step === "ceo-tutorial"
 
   return (
-    <div className="relative">
-      <AnimatePresence mode="wait">
-        {(step === "intro" || ceoDisplaysFirstVideo) && (
-          <IntroVideo key="intro" />
-        )}
-        {step === "intro" && (
-          <IntroComponent handleStart={handleStart} key="intro-comp" />
-        )}
-        {step === "ceo-tutorial" && (
-          <CeoTutorial
-            handleNext={handleNext}
-            step={tutorialStep}
-            setStep={setTutorialStep}
-            key="ceo"
-          />
-        )}
-        {step === "product-tutorial" && (
-          <>
-            <ProductTutorial key="prod-tutorial" />
-            <SkipProductTutorial />
-          </>
-        )}
-      </AnimatePresence>
-    </div>
+    <Layout>
+      <div className="relative">
+        <AnimatePresence mode="wait">
+          {(step === "intro" || ceoDisplaysFirstVideo) && (
+            <IntroVideo key="intro" />
+          )}
+          {step === "intro" && (
+            <IntroComponent handleStart={handleStart} key="intro-comp" />
+          )}
+          {step === "ceo-tutorial" && (
+            <CeoTutorial
+              handleNext={handleNext}
+              step={tutorialStep}
+              setStep={setTutorialStep}
+              key="ceo"
+            />
+          )}
+          {step === "product-tutorial" && (
+            <>
+              <ProductTutorial key="prod-tutorial" />
+              <SkipProductTutorial />
+            </>
+          )}
+        </AnimatePresence>
+      </div>
+    </Layout>
   )
 }
 

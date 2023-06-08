@@ -1,3 +1,4 @@
+import { Layout } from "components/layout/Layout"
 import { type GetStaticProps } from "next"
 import Head from "next/head"
 import { useEffect, useState } from "react"
@@ -116,46 +117,48 @@ const ThreeDStore = () => {
           />
         ))}
       </Head>
-      <BackgroundContainer
-        setMenu={setMenu}
-        setSelectedProduct={setSelectedProduct}
-      >
-        <ToastContainer position="top-right" />
-        <ThreeDHeader setMenu={setMenu} displayIcons={iconsToDisplay} />
-
-        {menu.settingsOn && (
-          <Settings closeSettings={closeMenu("settingsOn")} />
-        )}
-
-        {menu.tutorialOn && (
-          <Tutorial
-            closeTutorial={closeMenu("tutorialOn")}
-            step={tutorialStep}
-            setStep={setTutorialStep}
-          />
-        )}
-
-        {menu.cartOn && <Cart closeCart={closeMenu("cartOn")} />}
-
-        {menu.profileOn && (
-          <Profile
-            closeProfile={closeMenu("profileOn")}
-            step={profileFormStep}
-            setStep={setProfileFormStep}
-          />
-        )}
-
-        <ProductButtons
-          setSelectedProduct={setSelectedProduct}
+      <Layout>
+        <BackgroundContainer
           setMenu={setMenu}
-        />
-        {menu.productOn && (
-          <ProductModal
-            productName={selectedProduct}
-            closeModal={closeMenu("productOn")}
+          setSelectedProduct={setSelectedProduct}
+        >
+          <ToastContainer position="top-right" />
+          <ThreeDHeader setMenu={setMenu} displayIcons={iconsToDisplay} />
+
+          {menu.settingsOn && (
+            <Settings closeSettings={closeMenu("settingsOn")} />
+          )}
+
+          {menu.tutorialOn && (
+            <Tutorial
+              closeTutorial={closeMenu("tutorialOn")}
+              step={tutorialStep}
+              setStep={setTutorialStep}
+            />
+          )}
+
+          {menu.cartOn && <Cart closeCart={closeMenu("cartOn")} />}
+
+          {menu.profileOn && (
+            <Profile
+              closeProfile={closeMenu("profileOn")}
+              step={profileFormStep}
+              setStep={setProfileFormStep}
+            />
+          )}
+
+          <ProductButtons
+            setSelectedProduct={setSelectedProduct}
+            setMenu={setMenu}
           />
-        )}
-      </BackgroundContainer>
+          {menu.productOn && (
+            <ProductModal
+              productName={selectedProduct}
+              closeModal={closeMenu("productOn")}
+            />
+          )}
+        </BackgroundContainer>
+      </Layout>
     </>
   )
 }
