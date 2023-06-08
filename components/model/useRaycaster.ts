@@ -55,11 +55,7 @@ export const getFirstClickable = (
 }
 
 export const openProductModal = (intersects: Intersection[]) => {
-  console.log("double clicked")
-
   const clickableObject = getFirstClickable(intersects)
-  console.log(clickableObject)
-
   if (clickableObject) {
     return clickableObject.name
   }

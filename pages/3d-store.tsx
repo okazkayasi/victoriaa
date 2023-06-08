@@ -1,4 +1,5 @@
 import { Layout } from "components/layout/Layout"
+import { MobileMenu } from "components/mobileModal/MobileMenu"
 import { type GetStaticProps } from "next"
 import Head from "next/head"
 import { useEffect, useState } from "react"
@@ -24,6 +25,7 @@ export type MenuType = {
   cartOn: boolean
   profileOn: boolean
   productOn: boolean
+  mobileMenuOn: boolean
 }
 
 export type ProfileSteps =
@@ -47,12 +49,13 @@ export type Products =
   | "gua_sha"
   | "cleansing_wipe"
 
-const initialMenu: MenuType = {
+export const initialMenu: MenuType = {
   tutorialOn: false,
   settingsOn: false,
   cartOn: false,
   profileOn: false,
   productOn: false,
+  mobileMenuOn: false,
 }
 
 const ThreeDStore = () => {
@@ -150,6 +153,9 @@ const ThreeDStore = () => {
               productName={selectedProduct}
               closeModal={closeMenu("productOn")}
             />
+          )}
+          {menu.mobileMenuOn && (
+            <MobileMenu closeModal={closeMenu("mobileMenuOn")} />
           )}
         </BackgroundContainer>
       </Layout>

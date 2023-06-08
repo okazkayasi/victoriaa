@@ -58,7 +58,6 @@ export const move = (state: RootState, controlRef: any, forward: boolean) => {
   ) {
     state.camera.position.addScaledVector(cameraDirection, moveSpeed)
     controlRef.target.addScaledVector(cameraDirection, moveSpeed)
-    console.log(state.camera.position)
   }
 }
 
