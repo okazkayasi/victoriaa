@@ -1,0 +1,383 @@
+{
+  "common": {
+    "button": "asfs",
+    "dashboard": {
+      "title": "MES SERVICES",
+      "cart_card_text": "VOIR MON PANIER",
+      "play_card_text": "JOUER AVEC DEMAIN",
+      "nft_card_text": "MON NFT ET MON WALLET",
+      "profile_card_text": "MON PROFIL SOLAIRE",
+      "metaverse_title": "LE MÉTAVERS",
+      "metaverse_button_text": "ENTREZ DANS LE METAVERSE STORE",
+      "intro_button_text": "Revoir l’introduction"
+    },
+    "tutorial": {
+      "intro": {
+        "caption": "xxBIENVENUE DANS LE METAVERSE STORE DE DEMAIN BEAUTYxx",
+        "subheader": "SHOP, PLAY, CONNECT, SHARE",
+        "enter_button_text": "ENTER",
+        "skip_intro_button_text": "Skip the introduction",
+        "tutorial_step_1": "Hello, I&apos;m Sandra Gasmi, the founder of Demain Beauty, a skincare and food supplement brand. I&nbsp;am delighted to welcome you today to introduce our products and commitments to you.",
+        "tutorial_step_2": "Demain® is a holistic skincare brand whose mission is to take care of your skin, your health, and our planet.",
+        "tutorial_step_3": "Our products are clean, organic, and healthy. This means they are 100% safe, 100% naturally sourced, and certified organic. Our products are also respectful of the microbiome and the planet."
+      }
+    },
+    "cart": {
+      "title": "MON PANIER",
+      "empty_text": "Votre panier est vide",
+      "non_empty_text": "Vous pouvez bénéficier de la livraison gratuite!",
+      "empty_button_text": "CONTINUEZ LA VISITE",
+      "delete_item_button_text": "Supprimer",
+      "summary_subtotal_text": "Sous - total",
+      "summary_discount_text": "MICROBIOME",
+      "summary_total_text": "Total",
+      "checkout_button_text": "PASSEZ LA COMMANDE !"
+    },
+    "profile_form_cart": {
+      "title": "VOTRE PROFIL SOLAIRE",
+      "restart_button_text": "REFAIRE",
+      "cart_summary_title": "VOTRE SELECTION 100% PERSONNALISÉ !",
+      "go_to_cart_button_text": "VOTRE PANIER"
+    },
+    "settings": {
+      "main": {
+        "title": "Paramètres",
+        "lang_option": "Langues",
+        "audio_option": "Audio",
+        "preferences_option": "Préférences",
+        "metaverse_button_text": "ENTREZ DANS LE METAVERSE STORE"
+      },
+      "languages": {
+        "title": "Langues",
+        "french": "Français",
+        "english": "Anglais"
+      }
+    },
+    "ingredients": {
+      "prebiotics": {
+        "ingredientName": "PRÉBIOTIQUES",
+        "benefits": "Protection et équilibre du microbiote cutané",
+        "ingredientFeatures": [
+          "Accélèrent le renouvellement cellulaire",
+          "Augmentent la production de protéine",
+          "Augmentent la production d'enzymes"
+        ],
+        "otherInfo": [
+          "Éléments nutritifs (minéraux, polysaccharides peptides …) destinés à favoriser le bon développement du microbiome cutané."
+        ]
+      },
+      "matcha": {
+        "ingredientName": "MATCHA",
+        "benefits": "Antioxydant - Anti-âge",
+        "ingredientFeatures": [
+          "Prévient les signes de l'âge",
+          "Favorise un teint plus lumineux",
+          "Vertus anti-inflammatoire, anti-stress et anti-rougeur"
+        ],
+        "otherInfo": [
+          "Riche en antioxydants",
+          "Plus concentré en principes actifs (polyphénols, tanins) que le thé vert standard: 137 fois plus puissant"
+        ]
+      },
+      "hyaluronic_acid": {
+        "ingredientName": "ACIDE HYALURONIQUE",
+        "benefits": "Hydratant - Repulpant - Raffermissant",
+        "ingredientFeatures": [
+          "Renforce en profondeur l'épiderme",
+          "Hydrate et repulpe la peau",
+          "Diminue les rides et les ridules"
+        ],
+        "otherInfo": [
+          "Molécule capable de capter jusqu’à 100 fois sa taille en eau",
+          "Présent naturellement dans la peau mais diminue progressivement à partir de 25ans"
+        ]
+      },
+      "prebiotics_blue": {
+        "ingredientName": "PROBIOTIQUES",
+        "benefits": "Renforcent et équilibrent le microbiote cutané",
+        "ingredientFeatures": [
+          "Accelerates cell renewal",
+          "Prevents from bad bacterias",
+          "Prevents from rednesses and irritation"
+        ],
+        "otherInfo": [
+          "6 souches de probiotiques aux propriétés complémentaires: Bifidobacterium bifidum, Bifidobacterium longum,  Lactobacillus plantarum, Lactobacillus Casei, Lactobacillus acidophilus et Streptococcus thermophilus."
+        ]
+      },
+      "shea_butter": {
+        "ingredientName": "BEURRE DE KARITÉ",
+        "benefits": "Hydratant - Nourrissant - Protecteur",
+        "ingredientFeatures": [
+          "Nourrit et hydrate l'épiderme en profondeur",
+          "Protège des agressions extérieures telles que le soleil ou le froid"
+        ],
+        "otherInfo": [
+          "Riche en vitamines A, E, F et en latex",
+          "Anti-oxydants (tels que les catéchines)",
+          "Des anti-inflammatoires (tels que les triterpènes)"
+        ]
+      },
+      "moringa_oil": {
+        "ingredientName": "HUILE DE MORINGA",
+        "benefits": "Anti-inflammatoire - Anti-oxydante - Réparatrice",
+        "ingredientFeatures": [
+          "Répare la barrière cutanée",
+          "Renforce le film hydrolipidique de la peau",
+          "Propriétés anti-inflammatoires, antibactériennes et antifongiques"
+        ],
+        "otherInfo": ["Acide oléique : oméga 9", "Vitamine E"]
+      },
+      "pre_prebiotics": {
+        "ingredientName": "PRE&PROBIOTIQUES",
+        "benefits": "Renforcent et équilibrent le microbiote cutané",
+        "ingredientFeatures": [
+          "Accélèrent le renouvellement cellulaire",
+          "Augmentent la production de protéine",
+          "Augmentent la production d'enzymes"
+        ],
+        "otherInfo": [
+          "6 souches de probiotiques aux propriétés complémentaires: Bifidobacterium bifidum, Bifidobacterium longum,  Lactobacillus plantarum, Lactobacillus Casei, Lactobacillus acidophilus et Streptococcus thermophilus"
+        ]
+      },
+      "pomegranate": {
+        "ingredientName": "ENZYMES DE GRENADE",
+        "benefits": "Exfoliant - Renouvellement cellulaire",
+        "ingredientFeatures": [
+          "Propriétés hydratantes et anti-rides",
+          "Pour une peau plus lumineuse et uniforme",
+          "Pour un teint clair et des rides réduites"
+        ],
+        "otherInfo": [
+          "Riche en antioxydants et en vitamine C",
+          "Riche en oligo-éléments"
+        ]
+      },
+      "aloe_vera": {
+        "ingredientName": "ALOE VERA",
+        "benefits": "Hydratant - Cicatrisant",
+        "ingredientFeatures": ["Vertus cicatrisantes et hydratantes"],
+        "otherInfo": [
+          "Riche en vitamines A, B1, B2, B3, B12, C, E",
+          "Riche en oligo-éléments (calcium, sodium, magnésium, zinc, potassium…)",
+          "Riche en acides aminés"
+        ]
+      },
+      "time_to_repair_prebiotics": {
+        "ingredientName": "PRE&PROBIOTIQUES",
+        "benefits": "Équilibre du microbiote cutané - Protection",
+        "ingredientFeatures": [
+          "Accélèrent le renouvellement cellulaire",
+          "Augmentent la production de protéine",
+          "Augmentent la production d'enzymes"
+        ],
+        "otherInfo": [
+          "6 souches de probiotiques aux propriétés complémentaires: Bifidobacterium bifidum, Bifidobacterium longum,  Lactobacillus plantarum, Lactobacillus Casei, Lactobacillus acidophilus et Streptococcus thermophilus"
+        ]
+      },
+      "collagen_booster": {
+        "ingredientName": "COLLAGENE BOOSTER",
+        "benefits": "Raffermissant - Antioxydant - Énergisant",
+        "ingredientFeatures": [
+          "Detoxifie et active la synthèse du collagène",
+          "Augmente la densité du collagène",
+          "Induit une réduction des rides en 2 semaines"
+        ],
+        "otherInfo": [
+          "Riche en anti-oxydants",
+          "Ses enzymes, acides gras, acides aminés et vitamines forment aussi un véritable cocktail revitalisant pour la peau"
+        ]
+      },
+      "thistle_oil": {
+        "ingredientName": "HUILE DE CHARDON",
+        "benefits": "Régénérante - Repulpante - Antioxydante",
+        "ingredientFeatures": [
+          "Régénére la barrière cutanée",
+          "Renforce la protèction naturelle de la peau"
+        ],
+        "otherInfo": ["Riche en oméga 3 et 6 et en vitamine E"]
+      },
+      "happy_age_prebiotics": {
+        "ingredientName": "PRE&PRO&POSTBIOTIQUES",
+        "benefits": "Renforcent et équilibrent le microbiote cutané",
+        "ingredientFeatures": [
+          "Accélèrent le renouvellement cellulaire",
+          "Augmentent la production de protéine",
+          "Augmentent la production d'enzymes"
+        ],
+        "otherInfo": [
+          "6 souches de probiotiques aux propriétés complémentaires: Bifidobacterium bifidum, Bifidobacterium longum,  Lactobacillus plantarum, Lactobacillus Casei, Lactobacillus acidophilus et Streptococcus thermophilus"
+        ]
+      },
+      "happy_age_hyaluronic_acid": {
+        "ingredientName": "ACIDE HYALURONIQUE",
+        "benefits": "Hydratant - Repulpant - Raffermissant",
+        "ingredientFeatures": [
+          "Renforce en profondeur l'épiderme",
+          "Hydrate et repulpe la peau",
+          "Diminue les rides et les ridules"
+        ],
+        "otherInfo": [
+          "Molécule capable de capter jusqu’à 100 fois sa taille en eau",
+          "Présent naturellement dans la peau mais diminue progressivement à partir de 25ans"
+        ]
+      },
+      "stevia_oil": {
+        "ingredientName": "HUILE CBD LIKE STEVIA",
+        "benefits": "Apaisante - Destressante",
+        "ingredientFeatures": [
+          "Apaise les traits",
+          "Destresse et relaxe les contractions musculaires"
+        ],
+        "otherInfo": [
+          "Un actif issu d’un Plancton Marin provenant de la mer d’Iroise, stimulant la synthèse de collagène et d’élastine, et tenseur du derme.« CBD like »"
+        ]
+      },
+      "prebiotic_ferment": {
+        "ingredientName": "FERMENT PRÉBIOTIQUE",
+        "benefits": "Protection - Équilibrant - Antioxydant",
+        "ingredientFeatures": [
+          "Maintient la barrière et préserve la diversité du microbiote",
+          "Booste les défenses naturelles anti-oxydantes et anti-bactériennes"
+        ],
+        "otherInfo": [
+          "Ce post-biotique à effet pré-biotique à la composition lipidique unique agit sur l’écosystème de la peau pour maintenir sa fonction barrière, préserver la diversité du microbiote et le rééquilibrer. Il booste les défenses naturelles anti-oxydantes et antibactériennes de la peau, renforce la cohésion de la jonction dermo-épidermique et accroit la synthèse et le transport des lipides épidermiques"
+        ]
+      },
+      "vegetal_retinol": {
+        "ingredientName": "RÉTINOL VÉGÉTAL",
+        "benefits": "Fermeté - Éclat - Lissant - Redensifiant",
+        "ingredientFeatures": [
+          "Augmente la synthése de collagène",
+          "Redensifie le derme et lisse le grain de la peau",
+          "Attenue les rides et rugosités",
+          "Diminue les pores et illumine le teint"
+        ],
+        "otherInfo": [
+          "Extrait de criste marine il augmente la synthèse de collagène et réduit sa dégradation"
+        ]
+      },
+      "golden_seaweed_extract": {
+        "ingredientName": "EXTRAIT D'ALGUE DORÉE",
+        "benefits": "Apaisant - Protection - Anti-age ",
+        "ingredientFeatures": [
+          "Apaise et protège l'ADN du photo-vieillissement",
+          "Protège du stress oxydatif",
+          "Renforce la photo protèction de la peau"
+        ],
+        "otherInfo": [
+          "Protecteur de l’ADN et du photo-vieillissement induit par les UV.Réduit les médiateurs d’inflammation de la peau soumis aux UV, protège significativement l’ADN des dommages causés par les UVB et donc du vieillissement prématuré de la peau induit par le stress oxydatif, et renforce la photo protection de la peau même sans filtre UV"
+        ]
+      },
+      "go_for_detox_prebiotics": {
+        "ingredientName": "PRÉBIOTIQUES",
+        "benefits": "Renforce le système digestif ",
+        "ingredientFeatures": [
+          "Nourrit et facilite le developpement des bonnes bactéries",
+          "Renforce le système digestif"
+        ],
+        "otherInfo": ["Des Fibres d’Acacia BIO"]
+      },
+      "turmeric_root_extract": {
+        "ingredientName": "EXTRAITS DE RACINE DE CURCUMA",
+        "benefits": "Confort digestif ",
+        "ingredientFeatures": [
+          "Facilite la digestion des graisses",
+          "Aide à maintenir la fonction du foie",
+          "Puissant anti-oxydant et anti-inflammatoire"
+        ],
+        "otherInfo": []
+      },
+      "organic_artichoke_leaf": {
+        "ingredientName": "FEUILLE D'ARTICHAUT BIO",
+        "benefits": "Detoxifie et draine le foie",
+        "ingredientFeatures": [
+          "Contribue à la detoxification et au drainage du foie"
+        ],
+        "otherInfo": []
+      },
+      "go_for_protection_dietary_prebiotics": {
+        "ingredientName": "PRÉBIOTIQUES",
+        "benefits": "Booste le système immunitaire",
+        "ingredientFeatures": [
+          "Nourrit et facilite le developpement des bonnes bactéries"
+        ],
+        "otherInfo": ["Des Fibres d’Acacia BIO"]
+      },
+      "go_for_protection_dietary_prebiotics_combination": {
+        "ingredientName": "UNE ASSOCIATION DE 4 SOUCHES DE PROBIOTIQUES",
+        "benefits": "Booste le système immunitaire",
+        "ingredientFeatures": [
+          "Renforce le système immunitaire",
+          "Equilibre la flore intestinale"
+        ],
+        "otherInfo": [
+          "6 souches de probiotiques aux propriétés complémentaires: Bifidobacterium bifidum, Bifidobacterium longum,  Lactobacillus plantarum, Lactobacillus Casei, Lactobacillus acidophilus et Streptococcus thermophilus"
+        ]
+      },
+      "vitamins": {
+        "ingredientName": "VITAMINES ET OLIGO-ÉLÉMENTS",
+        "benefits": "ZINC : Anti-oxydant - cicatrisant MANGANESE : Anti-oxydante - Protèctrice VITAMINE B3 : Energisante",
+        "ingredientFeatures": [
+          "Traite les problèmes de peau",
+          "Lutte contre les radicaux libres",
+          "Participe à la production de diffèrents lipides et leurs dérivés"
+        ],
+        "otherInfo": [
+          "Zinc (75%AR)",
+          "Manganèse 1mg (50%AR)",
+          "Vitamine B3 (100% AR)"
+        ]
+      }
+    },
+    "products": {
+      "go_for_protection_skincare": {
+        "name": "GO FOR PROTECTION",
+        "subheadings": "SOIN JOUR HYDRATANT",
+        "productFeature": "Hydrate et protège la peau des agressions extérieures ( lumière bleue, pollution et infrarouge) accélératrices du vieillissement cutané",
+        "price": "38,00 €"
+      },
+      "time_to_detox": {
+        "name": "TIME TO DETOX",
+        "subheadings": "BAUME DÉMAQUILLANT ECLAT UNIVERSEL",
+        "productFeature": "Elimine la pollution, la poussière, le maquillage et toutes les impuretés accumulées tout en nourrissant et protegeant le microbiote cutané",
+        "price": "32,00 €"
+      },
+      "go_for_glow": {
+        "name": "GO FOR GLOW",
+        "subheadings": "GEL NETTOYANT UNIVERSEL",
+        "productFeature": "Elimine les impuretés et les peaux mortes. Renforce l'équilibre cutané tout en respectant le microbiome",
+        "price": "27,00 €"
+      },
+      "time_to_repair": {
+        "name": "TIME TO REPAIR",
+        "subheadings": "SOIN NUIT REGENERANT",
+        "productFeature": "Detoxifie, nourrit et répare la peau",
+        "price": "44,00 €"
+      },
+      "happy_age": {
+        "name": "HAPPY AGE",
+        "subheadings": "SÉRUM ANTI-AGE",
+        "productFeature": "Agit sur les signes de 'âge : rides, déshydratation, manque d'éclat, perte de fermeté et/ou d'élasticité",
+        "price": "55,00 €"
+      },
+      "sculpt_glow": {
+        "name": "SCLUPT&GLOW",
+        "subheadings": "HUILE DE SOIN NUIT",
+        "productFeature": "Redensifie, lisse, nourrit, apaise et protège le derme",
+        "price": "38,00 €"
+      },
+      "go_for_detox": {
+        "name": "GO FOR DETOX",
+        "subheadings": "COMPLÉMENTS ALIMENTAIRES",
+        "productFeature": "Facilite la digestion et aide au bon fonctionnement du foie grâce à sa teneur en Zinc, il permet de maintenir un metabolisme acidobasique normal, une peau saine et de réduire les problèmes de peau et d’acné. Riche en Vitamine B6, il contribue aussi à réduire la fatigue",
+        "price": "35,00 €"
+      },
+      "go_for_protection_dietary": {
+        "name": "GO FOR PROTECTION 2",
+        "subheadings": "COMPLÉMENTS ALIMENTAIRES",
+        "productFeature": "Renforce le système immunitaire et aide le corps à mieux se protéger des agressions extérieures accélératrices du vieillissement cutané",
+        "price": "35,00 €"
+      }
+    }
+  }
+}
