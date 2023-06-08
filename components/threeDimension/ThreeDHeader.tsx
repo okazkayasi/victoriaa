@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction } from "react"
-import { type MenuType } from "../../pages/3d-store"
+import { initialMenu, type MenuType } from "../../pages/3d-store"
 import { CartIcon } from "../shapes/CartIcon"
 import { QuestionMarkIcon } from "../shapes/QuestionMarkIcon"
 import { SettingsIcon } from "../shapes/SettingsIcon"
@@ -16,17 +16,13 @@ export const ThreeDHeader = ({
   const toggle = (key: keyof MenuType) => {
     return () =>
       setMenu((prev) => ({
-        cartOn: false,
-        profileOn: false,
-        settingsOn: false,
-        tutorialOn: false,
-        productOn: false,
+        ...initialMenu,
         [key]: !prev[key],
       }))
   }
 
   return (
-    <div className="flex items-center justify-between relative z-20">
+    <div className="relative z-20 flex items-center justify-between">
       <div className="flex gap-1.5">
         <IconWrapper
           onClick={toggle("tutorialOn")}
