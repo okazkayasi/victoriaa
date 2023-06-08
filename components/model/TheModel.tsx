@@ -135,21 +135,22 @@ export const TheModel = ({
 
   useFrame((state, delta) => {
     scaleProductsUpAndDown(intersects, clickableObjects)
-    if (backward || forward || left || right) {
-      setLerping(false)
-      setTarget(state.camera.position)
-    } else {
-      // make the circles bigger
+    if (!lerpingToFar) {
+      if (backward || forward || left || right) {
+        setLerping(false)
+        setTarget(state.camera.position)
+      } else {
+        // make the circles bigger
+      }
+      if (forward || backward) {
+        move(state, controlRef.current, forward)
+      }
+      if (left || right) {
+        rotate(state, controlRef.current, right, "start")
+      } else {
+        rotate(state, controlRef.current, right, "stop")
+      }
     }
-    if (forward || backward) {
-      move(state, controlRef.current, forward)
-    }
-    if (left || right) {
-      rotate(state, controlRef.current, right, "start")
-    } else {
-      rotate(state, controlRef.current, right, "stop")
-    }
-
     if (lerping) {
       state.camera.position.lerp(target, delta * 2)
       const targetVec = new Vector3(
@@ -159,7 +160,7 @@ export const TheModel = ({
       )
       controlRef.current.target.lerp(targetVec, delta * 2)
 
-      if (state.camera.position.distanceTo(target) < 0.1) {
+      if (state.camera.position.distanceTo(target) < 0.5) {
         setLerping(false)
         if (lerpingToFar) {
           setMenu({ ...initialMenu, mobileMenuOn: true })
