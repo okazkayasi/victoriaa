@@ -7,6 +7,7 @@ import {
 import { CloseButton } from "../button/CloseButton"
 import { Text, Title } from "../typography/Typography"
 
+import { useTranslation } from "react-i18next"
 import { RightArrow } from "../shapes/RightArrow"
 import { LanguageSettings } from "./Languages"
 
@@ -45,6 +46,7 @@ const MainSettings = ({
 }: {
   setSettingRoute: Dispatch<SetStateAction<SettingsType>>
 }) => {
+  const { t } = useTranslation()
   const changeRoute = (route: SettingsType) => {
     return () => setSettingRoute(route)
   }
@@ -52,16 +54,22 @@ const MainSettings = ({
   return (
     <div>
       <Title size="medium" color="main" bold className="mb-5">
-        SETTINGS
+        {t("common.settings.main.title")}
       </Title>
       <div>
         <ul>
-          <SettingItem text="Languages" onClick={changeRoute("languages")} />
-          <SettingItem text="Audio" onClick={changeRoute("audio")} />
           <SettingItem
-            text="Preferences"
-            onClick={changeRoute("preferences")}
+            text={t("common.settings.main.lang_option")}
+            onClick={changeRoute("languages")}
           />
+          {/* <SettingItem
+            text={t("common.settings.main.audio")}
+            onClick={changeRoute("audio")}
+          />
+          <SettingItem
+            text={t("common.settings.main.preferences_option")}
+            onClick={changeRoute("preferences")}
+          /> */}
         </ul>
       </div>
     </div>
