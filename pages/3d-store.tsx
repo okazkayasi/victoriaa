@@ -19,6 +19,7 @@ import { getIntlProps } from "../utils/getIntlProps"
 import { ingredientsList, productsList } from "../utils/ingredientsList"
 import { useIsFirstTime } from "../utils/useIsFirstTime"
 
+const DISPLAY_PRODUCT_BUTTONS = false
 export type MenuType = {
   tutorialOn: boolean
   settingsOn: boolean
@@ -144,10 +145,12 @@ const ThreeDStore = () => {
             />
           )}
 
-          <ProductButtons
-            setSelectedProduct={setSelectedProduct}
-            setMenu={setMenu}
-          />
+          {DISPLAY_PRODUCT_BUTTONS && (
+            <ProductButtons
+              setSelectedProduct={setSelectedProduct}
+              setMenu={setMenu}
+            />
+          )}
           {menu.productOn && (
             <ProductModal
               productName={selectedProduct}
