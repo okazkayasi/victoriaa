@@ -1,3 +1,4 @@
+import { montserrat } from "components/typography/Typography"
 import { toast } from "react-toastify"
 
 export function toastError(message: string) {
@@ -8,7 +9,7 @@ export function toastError(message: string) {
     hideProgressBar: true,
     pauseOnFocusLoss: false,
     draggable: false,
-    style: { fontFamily: "Montserrat", color: "black" },
+    style: { color: "black", fontFamily: montserrat.style.fontFamily },
   })
 }
 
@@ -20,6 +21,6 @@ export function toastSuccess(message: string) {
     hideProgressBar: true,
     pauseOnFocusLoss: false,
     draggable: false,
-    style: { fontFamily: "Montserrat", color: "black" },
+    style: { color: "black", fontFamily: montserrat.style.fontFamily },
   })
 }

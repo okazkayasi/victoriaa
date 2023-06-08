@@ -100,14 +100,12 @@ export const ProductModal = ({
   const productId = clickables.find((c) => c.localName === productName)?.id
 
   const { data: productsData, isSuccess } = useProducts()
-  console.log(productsData)
 
   const modalProduct = isSuccess
     ? productsData?.data.products.edges.find((p) =>
         p.node.id.endsWith(productId)
       )
     : undefined
-  console.log(modalProduct, "this is modal product", productId)
 
   const variantId = productVariantMatching.find(
     (p) => p.productId === modalProduct?.node.id
