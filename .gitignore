@@ -36,3 +36,5 @@ next-env.d.ts
 
 *.glb
 public/videos/
+
+pages/all-products.tsx
