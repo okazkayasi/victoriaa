@@ -1,10 +1,11 @@
 import { Stats } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { MenuType, Products } from "pages/3d-store"
-import { Dispatch, SetStateAction, useState } from "react"
+import { Dispatch, SetStateAction, Suspense, useState } from "react"
 import { Vector3 } from "three"
 import { TheModel } from "../model/Model"
 import { CENTERS } from "../model/constants"
+import { Loader } from "./Loader"
 
 export const Scene = ({
   setMenu,
@@ -34,16 +35,18 @@ export const Scene = ({
           fov: 76,
         }}
       >
-        <color attach="background" args={["#171720"]} />
-        <TheModel
-          lerping={lerping}
-          setLerping={setLerping}
-          target={target}
-          setTarget={setTarget}
-          setSelectedProduct={setSelectedProduct}
-          setMenu={setMenu}
-        />
-        <Stats />
+        <Suspense fallback={<Loader />}>
+          <color attach="background" args={["#171720"]} />
+          <TheModel
+            lerping={lerping}
+            setLerping={setLerping}
+            target={target}
+            setTarget={setTarget}
+            setSelectedProduct={setSelectedProduct}
+            setMenu={setMenu}
+          />
+          <Stats />
+        </Suspense>
       </Canvas>
     </div>
   )
