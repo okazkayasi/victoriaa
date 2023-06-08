@@ -21,9 +21,11 @@ export const TheModel = ({
 
   const { forward, backward, left, right } = usePersonControls()
 
-  const gltff = useGLTF("/glb/demain_beauty.glb")
-  console.log(gltff, "gltff")
-  const { scene } = gltff
+  // const gltf = useGLTF("/glb/demain_beauty.glb")
+  const gltf = useGLTF(
+    "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty.glb"
+  )
+  const { scene } = gltf
 
   const circles = useMemo(() => {
     const onDoubleClick = (e: ThreeEvent<MouseEvent>) => {
