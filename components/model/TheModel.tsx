@@ -21,7 +21,7 @@ import {
   useRaycaster,
 } from "./useRaycaster"
 
-const USE_LOCAL = true
+const USE_LOCAL = false
 const modelUrl = USE_LOCAL
   ? "/models/demain_beauty_v3.glb"
   : "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty_v3.glb"
