@@ -207,7 +207,6 @@ export const TheModel = ({
         intensity={0.5}
       /> */}
       <primitive object={scene} />
-      <ambientLight intensity={2} />
       {circles}
     </group>
   )
