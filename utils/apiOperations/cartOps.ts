@@ -3,7 +3,7 @@ import axios from "axios"
 import { type ApiData, type Error } from "../types"
 import { fetcher, getAuthToken } from "./fetcher"
 
-export type vaCartItemData = {
+export type CartItemData = {
   id: string
   quantity: number
   cost: {
