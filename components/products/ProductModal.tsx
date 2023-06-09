@@ -1,8 +1,10 @@
-import { clickables } from "components/model/constants"
+import { clickables, productVariantMatching } from "components/model/constants"
 import Image from "next/image"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import { addToCart } from "utils/apiOperations/cartOps"
 import { useProducts } from "utils/apiOperations/productOps"
+import { toastError, toastSuccess } from "utils/toast"
 import { Products } from "../../pages/3d-store"
 import { Button } from "../button/Button"
 import { CloseButton } from "../button/CloseButton"
@@ -98,20 +100,36 @@ export const ProductModal = ({
   const productId = clickables.find((c) => c.localName === productName)?.id
 
   const { data: productsData, isSuccess } = useProducts()
-  console.log(productsData)
 
   const modalProduct = isSuccess
     ? productsData?.data.products.edges.find((p) =>
         p.node.id.endsWith(productId)
       )
-    : ""
-  console.log(modalProduct, "this is modal product", productId)
+    : undefined
+
+  const variantId = productVariantMatching.find(
+    (p) => p.productId === modalProduct?.node.id
+  )?.variantId
 
   const { t } = useTranslation()
 
   const ingredients = productsMap[productName].ingredients
 
   const currentIng = ingredients[displayIngredientIndex ?? 0]
+
+  const addItemToCart = async () => {
+    addToCart({
+      variantId,
+      quantity: 1,
+    }).then((data) => {
+      console.log(data, "data")
+      if (data?.data?.errors?.length > 0) {
+        toastError("Something went wrong")
+      } else {
+        toastSuccess("Product added to cart")
+      }
+    })
+  }
 
   return (
     <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
@@ -161,7 +179,7 @@ export const ProductModal = ({
                 <Title as="p" size="medium" bold className="mb-3">
                   {t("common.products." + productName + ".price")}
                 </Title>
-                <Button variant="outlined" size="small">
+                <Button variant="outlined" size="small" onClick={addItemToCart}>
                   AJOUTEZ AU PANIER
                 </Button>
               </div>

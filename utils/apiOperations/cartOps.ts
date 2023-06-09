@@ -3,7 +3,7 @@ import axios from "axios"
 import { type ApiData, type Error } from "../types"
 import { fetcher, getAuthToken } from "./fetcher"
 
-export type CartItemData = {
+export type vaCartItemData = {
   id: string
   quantity: number
   cost: {
@@ -85,7 +85,7 @@ export const addToCart = (data: { variantId: string; quantity: number }) => {
         Authorization: token ? `Bearer ${token}` : "",
       },
     })
-    .then((res) => console.log(res.data, "data after add"))
+    .then((res) => res.data)
 }
 
 export const deleteFromCart = (data: { lineId: string }) => {
@@ -96,7 +96,7 @@ export const deleteFromCart = (data: { lineId: string }) => {
         Authorization: token ? `Bearer ${token}` : "",
       },
     })
-    .then((res) => console.log(res.data, "data after delete"))
+    .then((res) => res.data)
 }
 
 export const updateCartItem = (data: {

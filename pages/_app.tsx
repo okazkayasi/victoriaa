@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { montserrat } from "components/typography/Typography"
 import { AnimatePresence } from "framer-motion"
 import { appWithTranslation } from "next-i18next"
 import { type AppType } from "next/app"
@@ -21,6 +22,10 @@ const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
         <meta name="title" content="ALSA" />
       </Head>
       <style global jsx>{`
+        html {
+          font-family: ${montserrat.style.fontFamily};
+        }
+
         html {
           font-size: 100%;
           min-height: 100vh;
