@@ -180,7 +180,7 @@ export const ProductModal = ({
                   {t("common.products." + productName + ".price")}
                 </Title>
                 <Button variant="outlined" size="small" onClick={addItemToCart}>
-                  AJOUTEZ AU PANIER
+                  {t("common.cart.add_to_cart_button")}
                 </Button>
               </div>
             </div>

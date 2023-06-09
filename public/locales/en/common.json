@@ -9,9 +9,21 @@
         "tutorial_step_1": "Hello, I'm Sandra Gasmi, the founder of Demain Beauty, a skincare and food supplement brand. I am delighted to welcome you today to introduce our products and commitments to you.",
         "tutorial_step_2": "Demain® is a holistic skincare brand whose mission is to take care of your skin, your health, and our planet.",
         "tutorial_step_3": "Our products are clean, organic, and healthy. This means they are 100% safe, 100% naturally sourced, and certified organic. Our products are also respectful of the microbiome and the planet."
+      },
+      "metaverse": {
+        "title": "TUTORIAL",
+        "skip_intro_button_text": "Skip the introduction",
+        "step_1": "Here's a quick tutorial to help you navigate better in our metaverse.",
+        "step_2": "Use the left and right arrow keys on the keyboard to turn in those directions. Use the up and down arrow keys on the keyboard to move forward and backward.",
+        "step_3": "You can also use the mouse for smoother navigation. Click and drag with the mouse to turn in different directions.",
+        "step_4": "At any time, you can access this tutorial by clicking on the <0/> button.",
+        "step_5": "You can access your cart by clicking on the <0></0> button",
+        "step_6": "You can also set up your solar profile to receive our most personalized recommendations by clicking on the <0/> button.",
+        "step_7": "You can choose your language by clicking on the <0/> button"
       }
     },
     "cart": {
+      "add_to_cart_button": "ADD TO CART",
       "title": "MY CART",
       "empty_text": "You have no items in cart!",
       "non_empty_text": "You can benefit from free shipping!",
