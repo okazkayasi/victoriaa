@@ -79,8 +79,6 @@ export const TheModel = ({
   const gltf = useGLTF(modelUrl)
   const { scene } = gltf
 
-  console.log(scene, "scene")
-
   const clickableObjects = scene.children.filter(
     ({ name }) => clickableNames.indexOf(name as Clickable["name"]) > -1
   )
