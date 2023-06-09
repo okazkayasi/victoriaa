@@ -8,6 +8,7 @@ import {
 import { Layout } from "components/layout/Layout"
 import { AnimatePresence } from "framer-motion"
 import { type GetStaticProps } from "next"
+import Head from "next/head"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import { getIntlProps } from "../utils/getIntlProps"
@@ -35,32 +36,46 @@ const Index = () => {
   const ceoDisplaysFirstVideo = step === "ceo-tutorial"
 
   return (
-    <Layout>
-      <div className="relative">
-        <AnimatePresence mode="wait">
-          {(step === "intro" || ceoDisplaysFirstVideo) && (
-            <IntroVideo key="intro" />
-          )}
-          {step === "intro" && (
-            <IntroComponent handleStart={handleStart} key="intro-comp" />
-          )}
-          {step === "ceo-tutorial" && (
-            <CeoTutorial
-              handleNext={handleNext}
-              step={tutorialStep}
-              setStep={setTutorialStep}
-              key="ceo"
-            />
-          )}
-          {step === "product-tutorial" && (
-            <>
-              <ProductTutorial key="prod-tutorial" />
-              <SkipProductTutorial />
-            </>
-          )}
-        </AnimatePresence>
-      </div>
-    </Layout>
+    <>
+      <Head>
+        <link
+          rel="preload"
+          href="https://victoria-vr.s3.us-east-2.amazonaws.com/Chafik_vid1_v1.mp4"
+          as="video"
+        />
+        <link
+          rel="preload"
+          href="https://victoria-vr.s3.us-east-2.amazonaws.com/Chafik_vid2__V3_v1.mp4"
+          as="video"
+        />
+      </Head>
+      <Layout>
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            {(step === "intro" || ceoDisplaysFirstVideo) && (
+              <IntroVideo key="intro" />
+            )}
+            {step === "intro" && (
+              <IntroComponent handleStart={handleStart} key="intro-comp" />
+            )}
+            {step === "ceo-tutorial" && (
+              <CeoTutorial
+                handleNext={handleNext}
+                step={tutorialStep}
+                setStep={setTutorialStep}
+                key="ceo"
+              />
+            )}
+            {step === "product-tutorial" && (
+              <>
+                <ProductTutorial key="prod-tutorial" />
+                <SkipProductTutorial />
+              </>
+            )}
+          </AnimatePresence>
+        </div>
+      </Layout>
+    </>
   )
 }
 

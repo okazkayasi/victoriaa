@@ -1,11 +1,13 @@
 import clsx from "clsx"
+import { QuestionMarkIcon } from "components/shapes/QuestionMarkIcon"
+import { SettingsIcon } from "components/shapes/SettingsIcon"
 import {
   useEffect,
   type Dispatch,
   type ReactNode,
   type SetStateAction,
 } from "react"
-import { SettingsIcon } from "../../components/shapes/SettingsIcon"
+import { Trans, useTranslation } from "react-i18next"
 import { useIsFirstTime } from "../../utils/useIsFirstTime"
 import { BackIcon } from "../shapes/BackIcon"
 import { CartIcon } from "../shapes/CartIcon"
@@ -31,6 +33,7 @@ export const Tutorial = ({
   step: number
   setStep: Dispatch<SetStateAction<number>>
 }) => {
+  const { t } = useTranslation()
   const { setIsFirstTime } = useIsFirstTime()
   const prevStep = () => {
     if (step > 0) {
@@ -53,34 +56,43 @@ export const Tutorial = ({
   }, [setIsFirstTime])
 
   const stepComponents = [
-    <TutorialStepText key={0}>
-      Here&apos;s a quick tutorial to help you navigate better in our metaverse.
-    </TutorialStepText>,
     <TutorialStepText key={1}>
-      Use the left and right arrow keys on the keyboard to turn in those
-      directions. Use the up and down arrow keys on the keyboard to move forward
-      and backward.
+      <Trans t={t} i18nKey={"common.tutorial.metaverse.step_1"} />
     </TutorialStepText>,
     <TutorialStepText key={2}>
-      You can also use the mouse for smoother navigation. Click and drag with
-      the mouse to turn in different directions.
+      <Trans t={t} i18nKey={"common.tutorial.metaverse.step_2"} />
     </TutorialStepText>,
     <TutorialStepText key={3}>
-      At any time, you can access this tutorial by clicking on the &quot;?&quot;
-      button.
+      <Trans t={t} i18nKey={"common.tutorial.metaverse.step_3"} />
     </TutorialStepText>,
+
     <TutorialStepText key={4}>
-      You can access your cart by clicking on the{" "}
-      <CartIcon className="inline h-6 w-6" /> button.
+      <Trans
+        t={t}
+        i18nKey={"common.tutorial.metaverse.step_4"}
+        components={[<QuestionMarkIcon className="inline h-4 w-4" />]}
+      />
     </TutorialStepText>,
     <TutorialStepText key={5}>
-      You can also set up your solar profile to receive our most personalized
-      recommendations by clicking on the <SunIcon className="inline h-6 w-6" />{" "}
-      button.
+      <Trans
+        t={t}
+        i18nKey={"common.tutorial.metaverse.step_5"}
+        components={[<CartIcon className="inline h-6 w-6" />]}
+      />
     </TutorialStepText>,
     <TutorialStepText key={6}>
-      You can choose your language by clicking on the{" "}
-      <SettingsIcon className="inline h-6 w-6" /> button.
+      <Trans
+        t={t}
+        i18nKey={"common.tutorial.metaverse.step_6"}
+        components={[<SunIcon className="inline h-6 w-6" />]}
+      />
+    </TutorialStepText>,
+    <TutorialStepText key={7}>
+      <Trans
+        t={t}
+        i18nKey={"common.tutorial.metaverse.step_7"}
+        components={[<SettingsIcon className="inline h-6 w-6" />]}
+      />
     </TutorialStepText>,
   ]
 
@@ -101,7 +113,7 @@ export const Tutorial = ({
 
   return (
     <div>
-      <div className="absolute left-1/2 top-[120px] -translate-x-1/2" z-20>
+      <div className="absolute left-1/2 top-[120px] z-20 -translate-x-1/2">
         {step === 1 && step1Visual}
         {step === 2 && step2Visual}
       </div>
@@ -109,7 +121,7 @@ export const Tutorial = ({
         <div className="bg-white bg-opacity-80 px-8">
           <div className="relative pb-10 pt-8">
             <Title size="medium" color="main" bold className="mb-3">
-              TUTORIAL
+              {t("common.tutorial.metaverse.title")}
             </Title>
             {stepComponents[step]}
             <div className="absolute bottom-4 flex w-full justify-between">
@@ -132,7 +144,7 @@ export const Tutorial = ({
             color="white"
           >
             <button onClick={closeTutorial} className="underline">
-              Skip the introduction
+              {t("common.tutorial.metaverse.skip_intro_button_text")}
             </button>
           </Text>
         </div>

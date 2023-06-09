@@ -17,6 +17,7 @@ import {
   CenterY,
   CenterZ,
   Clickable,
+  FAR_CIRCLE_OFFSET,
   HIDE_CIRCLES_DISTANCE,
   circlePositions,
   clickableNames,
@@ -30,7 +31,7 @@ import {
 } from "./useRaycaster"
 
 const USE_LOCAL = false // TODO: change
-const modelUrl = USE_LOCAL
+export const modelUrl = USE_LOCAL
   ? "/models/demain_beauty_v3.glb"
   : "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty_v3.glb"
 
@@ -69,7 +70,7 @@ export const TheModel = ({
   }, [menu.mobileMenuOn])
 
   const isAnyMenuOn = Object.entries(menu)
-    .filter((a) => a[0] !== "productOn")
+    .filter((a) => a[0] !== "productOn" && a[0] !== "tutorialOn")
     .some((a) => a[1])
 
   const controlRef = useRef(null)
@@ -190,24 +191,23 @@ export const TheModel = ({
         ref={controlRef}
       />
       <pointLight position={[CenterX, CenterY + 3, CenterZ]} intensity={1} />
-      {/* <pointLight
+      <pointLight
         position={[CenterX + FAR_CIRCLE_OFFSET, CenterY + 2, CenterZ]}
-        intensity={0.5}
+        intensity={0.1}
       />
       <pointLight
         position={[CenterX - FAR_CIRCLE_OFFSET, CenterY + 2, CenterZ]}
-        intensity={0.5}
+        intensity={0.1}
       />
       <pointLight
         position={[CenterX, CenterY + 2, CenterZ + FAR_CIRCLE_OFFSET]}
-        intensity={0.5}
+        intensity={0.1}
       />
       <pointLight
         position={[CenterX, CenterY + 2, CenterZ - FAR_CIRCLE_OFFSET]}
-        intensity={0.5}
-      /> */}
+        intensity={0.1}
+      />
       <primitive object={scene} />
-      <ambientLight intensity={2} />
       {circles}
     </group>
   )

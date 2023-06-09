@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { addToCart } from "utils/apiOperations/cartOps"
 import { useProducts } from "utils/apiOperations/productOps"
+import { useCurrentCart } from "utils/hooks/useCurrentCart"
 import { toastError, toastSuccess } from "utils/toast"
 import { Products } from "../../pages/3d-store"
 import { Button } from "../button/Button"
@@ -96,7 +97,7 @@ export const ProductModal = ({
   const [displayIngredientIndex, setDisplayIngredientIndex] = useState<
     number | null
   >(null)
-
+  useCurrentCart()
   const productId = clickables.find((c) => c.localName === productName)?.id
 
   const { data: productsData, isSuccess } = useProducts()
@@ -180,7 +181,7 @@ export const ProductModal = ({
                   {t("common.products." + productName + ".price")}
                 </Title>
                 <Button variant="outlined" size="small" onClick={addItemToCart}>
-                  AJOUTEZ AU PANIER
+                  {t("common.cart.add_to_cart_button")}
                 </Button>
               </div>
             </div>

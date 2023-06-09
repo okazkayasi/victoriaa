@@ -2,16 +2,28 @@
   "common": {
     "tutorial": {
       "intro": {
-        "caption": "xxBIENVENUE DANS LE METAVERSE STORE DE DEMAIN BEAUTYxx",
+        "caption": "BIENVENUE DANS LE METAVERSE STORE DE DEMAIN BEAUTY",
         "subheader": "SHOP, PLAY, CONNECT, SHARE",
         "enter_button_text": "ENTER",
-        "skip_intro_button_text": "Skip the introduction",
-        "tutorial_step_1": "Hello, I&apos;m Sandra Gasmi, the founder of Demain Beauty, a skincare and food supplement brand. I&nbsp;am delighted to welcome you today to introduce our products and commitments to you.",
-        "tutorial_step_2": "Demain® is a holistic skincare brand whose mission is to take care of your skin, your health, and our planet.",
-        "tutorial_step_3": "Our products are clean, organic, and healthy. This means they are 100% safe, 100% naturally sourced, and certified organic. Our products are also respectful of the microbiome and the planet."
+        "skip_intro_button_text": "Passer le tutoriel",
+        "tutorial_step_1": "Bonjour, je suis Sandra Gasmi, la fondatrice de la marque de soins et compléments alimentaires Demain Beauty. je suis heureuse de vous accueillir aujourd’hui pour vous presenter nos produits et nos engagements.",
+        "tutorial_step_2": "Demain® est une marque de soins holistiques dont la mission est de prendre soin de votre peau, de votre santé et de notre planète.​",
+        "tutorial_step_3": "Nos produits sont propres, biologiques et sains. Cela signifie qu'ils sont 100 % sûrs, 100 % d'origine naturelle et certifiés biologiques. Nos produits sont également respectueux du microbiome et de la planète."
+      },
+      "metaverse": {
+        "title": "TUTORIAL",
+        "skip_intro_button_text": "Passer le tutoriel",
+        "step_1": "Voici un rapide tutoriel qui vous aidera à mieux vous déplacer dans notre métavers.",
+        "step_2": "Faites glisser votre doigt pour regarder de droite à gauche et de haut en bas.",
+        "step_3": "Zoomer pour avancer, dézoomer pour reculer.",
+        "step_4": "À tout moment, vous pouvez retrouver ce tutoriel en appuyant sur le bouton <0/>",
+        "step_5": "Vous pouvez accéder à votre panier en cliquant sur le bouton <0/>",
+        "step_6": "Vous pouvez également configurer votre profil solaire pour recevoir nos recommandations les plus personnalisées en cliquant sur le bouton <0/>",
+        "step_7": "Vous pouvez choisir votre langue en cliquant sur le bouton <0/>"
       }
     },
     "cart": {
+      "add_to_cart_button": "AJOUTEZ AU PANIER",
       "title": "MON PANIER",
       "empty_text": "Votre panier est vide",
       "non_empty_text": "Vous pouvez bénéficier de la livraison gratuite!",

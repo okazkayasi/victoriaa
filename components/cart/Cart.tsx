@@ -22,7 +22,7 @@ const calculateTax = (subtotal: string, total: string) => {
 export const Cart = ({ closeCart }: { closeCart: () => void }) => {
   const { t } = useTranslation()
   const { cart, refetch: refetchCart } = useCurrentCart()
-  const numberOfItems = cart?.data?.cart.totalQuantity || 0
+  const numberOfItems = cart?.data?.cart?.lines?.edges?.length || 0
   const subtotal = (cart?.data.cart.cost.subtotalAmount.amount || "0") + "€"
   const total = (cart?.data.cart.cost.totalAmount.amount || "0") + "€"
 

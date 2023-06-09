@@ -14,6 +14,7 @@ export const IntroVideo = () => {
         autoPlay={true}
         muted={true}
         loop={true}
+        preload="auto"
         className="fixed inset-0 -z-10 h-screen w-screen object-cover"
       >
         <source

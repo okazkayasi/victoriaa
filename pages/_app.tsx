@@ -13,7 +13,11 @@ const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preload"
+          as="model"
+          href="https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty_v3.glb"
+        />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta
           name="description"
