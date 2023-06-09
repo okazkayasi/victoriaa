@@ -42,7 +42,7 @@ export const getFirstClickable = (
       clickableNames.indexOf(intersect.object.name as Clickable["name"]) !== -1
     const isObjectParentClickable =
       clickableNames.indexOf(
-        intersect.object.parent.name as Clickable["name"]
+        intersect.object.parent?.name as Clickable["name"]
       ) !== -1
     if (isObjectClickable || isObjectParentClickable) {
       const clickableObject = isObjectClickable

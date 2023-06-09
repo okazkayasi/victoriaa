@@ -17,6 +17,7 @@ import {
   CenterY,
   CenterZ,
   Clickable,
+  FAR_CIRCLE_OFFSET,
   HIDE_CIRCLES_DISTANCE,
   circlePositions,
   clickableNames,
@@ -190,22 +191,22 @@ export const TheModel = ({
         ref={controlRef}
       />
       <pointLight position={[CenterX, CenterY + 3, CenterZ]} intensity={1} />
-      {/* <pointLight
+      <pointLight
         position={[CenterX + FAR_CIRCLE_OFFSET, CenterY + 2, CenterZ]}
-        intensity={0.5}
+        intensity={0.1}
       />
       <pointLight
         position={[CenterX - FAR_CIRCLE_OFFSET, CenterY + 2, CenterZ]}
-        intensity={0.5}
+        intensity={0.1}
       />
       <pointLight
         position={[CenterX, CenterY + 2, CenterZ + FAR_CIRCLE_OFFSET]}
-        intensity={0.5}
+        intensity={0.1}
       />
       <pointLight
         position={[CenterX, CenterY + 2, CenterZ - FAR_CIRCLE_OFFSET]}
-        intensity={0.5}
-      /> */}
+        intensity={0.1}
+      />
       <primitive object={scene} />
       {circles}
     </group>
