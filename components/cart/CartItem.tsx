@@ -1,9 +1,9 @@
 import { productVariantMatching } from "components/model/constants"
 import { useState } from "react"
 import {
+  CartItemData,
   deleteFromCart,
   updateCartItem,
-  type CartItemData,
 } from "../../utils/apiOperations/cartOps"
 import { useCurrentCart } from "../../utils/hooks/useCurrentCart"
 import { toastSuccess } from "../../utils/toast"
