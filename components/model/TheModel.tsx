@@ -189,7 +189,7 @@ export const TheModel = ({
         enabled={!isAnyMenuOn}
         ref={controlRef}
       />
-      <pointLight position={[CenterX, CenterY + 2, CenterZ]} intensity={0.5} />
+      <pointLight position={[CenterX, CenterY + 3, CenterZ]} intensity={1} />
       {/* <pointLight
         position={[CenterX + FAR_CIRCLE_OFFSET, CenterY + 2, CenterZ]}
         intensity={0.5}
