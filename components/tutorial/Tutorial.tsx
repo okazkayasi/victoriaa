@@ -101,7 +101,7 @@ export const Tutorial = ({
 
   return (
     <div>
-      <div className="absolute left-1/2 top-[120px] -translate-x-1/2" z-20>
+      <div className="absolute left-1/2 top-[120px] z-20 -translate-x-1/2">
         {step === 1 && step1Visual}
         {step === 2 && step2Visual}
       </div>

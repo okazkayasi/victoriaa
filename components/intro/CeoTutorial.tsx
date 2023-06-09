@@ -87,7 +87,13 @@ export const CeoTutorial = ({
           </Text>
         </div>
         <div className="absolute left-0 top-0 -translate-x-[10px] -translate-y-2/3">
-          <Image src="/images/ceo.png" alt="CEO" width={111} height={111} />
+          <Image
+            src="/images/Sandra-Gasmi.png"
+            className="rounded-full"
+            alt="CEO"
+            width={111}
+            height={111}
+          />
         </div>
       </div>
     </motion.div>

@@ -30,7 +30,7 @@ import {
 } from "./useRaycaster"
 
 const USE_LOCAL = false // TODO: change
-const modelUrl = USE_LOCAL
+export const modelUrl = USE_LOCAL
   ? "/models/demain_beauty_v3.glb"
   : "https://victoria-vr.s3.us-east-2.amazonaws.com/demain_beauty_v3.glb"
 
@@ -69,7 +69,7 @@ export const TheModel = ({
   }, [menu.mobileMenuOn])
 
   const isAnyMenuOn = Object.entries(menu)
-    .filter((a) => a[0] !== "productOn")
+    .filter((a) => a[0] !== "productOn" && a[0] !== "tutorialOn")
     .some((a) => a[1])
 
   const controlRef = useRef(null)
@@ -78,6 +78,8 @@ export const TheModel = ({
 
   const gltf = useGLTF(modelUrl)
   const { scene } = gltf
+
+  console.log(scene, "scene")
 
   const clickableObjects = scene.children.filter(
     ({ name }) => clickableNames.indexOf(name as Clickable["name"]) > -1

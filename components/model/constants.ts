@@ -85,6 +85,18 @@ export const clickableNames = [
   "lingette002",
   "étuilingette",
   "lingette001",
+  "boite_small001",
+  "boite_small002",
+  "boite_small003",
+  "boite_small004",
+  "boite_medium001",
+  "boite_medium002",
+  "boite_medium003",
+  "boite_medium004",
+  "boite_big001",
+  "boite_big002",
+  "boite_big004",
+  "boite_big005",
 ] as const
 
 export type ClickableName = (typeof clickableNames)[number]
@@ -211,6 +223,18 @@ export const clickables: Clickable[] = [
     localName: "cleansing_wipe",
     id: "gid://shopify/Product/8412768764179",
   },
+  { name: "boite_small001" },
+  { name: "boite_small002" },
+  { name: "boite_small003" },
+  { name: "boite_small004" },
+  { name: "boite_medium001" },
+  { name: "boite_medium002" },
+  { name: "boite_medium003" },
+  { name: "boite_medium004" },
+  { name: "boite_big001" },
+  { name: "boite_big002" },
+  { name: "boite_big004" },
+  { name: "boite_big005" },
 ]
 
 export const productVariantMatching = [

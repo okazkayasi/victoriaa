@@ -18,6 +18,7 @@ export const ProductTutorial = () => {
         autoPlay={true}
         muted={true}
         className="fixed inset-0 -z-10 h-screen w-screen object-cover"
+        preload="auto"
         onEnded={() => {
           void router.push("/3d-store")
         }}
